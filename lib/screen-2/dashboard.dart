@@ -1,6 +1,6 @@
 // lib/dashboard.dart
 import 'package:flutter/material.dart';
-import 'package:siakad/widgets/custom_bottom_nav_bar.dart'; // Import custom widget
+import 'package:siakad/widgets/custom_bottom_nav_bar.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
