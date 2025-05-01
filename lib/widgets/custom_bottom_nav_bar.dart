@@ -51,7 +51,7 @@ class CustomBottomNavBar extends StatelessWidget {
     bool isActive = currentIndex == index;
 
     return BottomNavigationBarItem(
-      icon: Container(
+      icon: SizedBox(
         height: 58,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
