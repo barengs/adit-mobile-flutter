@@ -1,6 +1,7 @@
 // lib/dashboard.dart
 import 'package:flutter/material.dart';
 import 'package:siakad/widgets/custom_bottom_nav_bar.dart';
+import 'package:siakad/widgets/custom_header.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -20,8 +21,12 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Dashboard')),
-      body: _pages[_currentIndex],
+      body: Column(
+        children: [
+          CustomHeader(),
+          Expanded(child: _pages[_currentIndex]),
+        ],
+      ),
       bottomNavigationBar: CustomBottomNavBar(
         currentIndex: _currentIndex,
         onTap: (index) {
