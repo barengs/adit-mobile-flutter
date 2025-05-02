@@ -23,7 +23,12 @@ class _DashboardState extends State<Dashboard> {
     return Scaffold(
       body: Column(
         children: [
-          CustomHeader(),
+          CustomHeader(
+            username: 'Addis',
+            npm: '12345678',
+            profileImageUrl:
+                'https://avatars.githubusercontent.com/u/583231?v=4',
+          ),
           Expanded(child: _pages[_currentIndex]),
         ],
       ),
