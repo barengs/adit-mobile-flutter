@@ -84,23 +84,23 @@ flutter:
           weight: 400
     - family: RobotoSlab
       fonts:
-        - asset: assets/fonts/Roboto_Slab/RobotoSlab-Thin.ttf
+        - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-Thin.ttf
           weight: 100
-        - asset: assets/fonts/Roboto_Slab/RobotoSlab-ExtraLight.ttf
+        - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-ExtraLight.ttf
           weight: 200
-        - asset: assets/fonts/Roboto_Slab/RobotoSlab-Light.ttf
+        - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-Light.ttf
           weight: 300
-        - asset: assets/fonts/Roboto_Slab/RobotoSlab-Regular.ttf
+        - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-Regular.ttf
           weight: 400
-        - asset: assets/fonts/Roboto_Slab/RobotoSlab-Medium.ttf
+        - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Roboto_Slab/RobotoSlab-SemiBold.ttf
+        - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Roboto_Slab/RobotoSlab-Bold.ttf
+        - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-Bold.ttf
           weight: 700
-        - asset: assets/fonts/Roboto_Slab/RobotoSlab-ExtraBold.ttf
+        - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-ExtraBold.ttf
           weight: 800
-        - asset: assets/fonts/Roboto_Slab/RobotoSlab-Black.ttf
+        - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-Black.ttf
           weight: 900
   #
   # For details regarding fonts from package dependencies,
