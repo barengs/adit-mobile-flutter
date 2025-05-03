@@ -28,6 +28,8 @@ class _DashboardState extends State<Dashboard> {
             npm: '12345678',
             profileImageUrl:
                 'https://avatars.githubusercontent.com/u/583231?v=4',
+            showNotificationIcon: true,
+            showSettingsIcon: true,
           ),
           Expanded(child: _pages[_currentIndex]),
         ],
