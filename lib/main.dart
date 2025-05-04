@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
 import 'screen-2/dashboard.dart';
+// import 'package:flutter/services.dart';
 
 void main() {
+  // SystemChrome.setSystemUIOverlayStyle(
+  //   SystemUiOverlayStyle(
+  //     statusBarColor: Color(0xFF21ABA5), // Warna status bar
+  //     statusBarIconBrightness: Brightness.light, // Warna ikon (putih)
+  //   ),
+  // );
   runApp(const MyApp());
 }
 

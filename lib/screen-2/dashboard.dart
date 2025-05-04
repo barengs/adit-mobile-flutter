@@ -24,13 +24,23 @@ class _DashboardState extends State<Dashboard> {
       body: Column(
         children: [
           CustomHeader(
-            username: 'Addis',
-            npm: '12345678',
+            title: _currentIndex == 0 ? null : (_currentIndex == 1 ? 'Presensi' : 'Informasi'),
+            username:
+                _currentIndex == 0
+                    ? 'Addis'
+                    : null, // hanya tampilkan username di Dashboard
+            npm:
+                _currentIndex == 0
+                    ? '12345678'
+                    : null,
             profileImageUrl:
-                'https://avatars.githubusercontent.com/u/583231?v=4',
-            showNotificationIcon: true,
-            showSettingsIcon: true,
+                _currentIndex == 0
+                    ? 'https://avatars.githubusercontent.com/u/583231?v=4'
+                    : null,
+            showNotificationIcon: _currentIndex == 0,
+            showSettingsIcon: _currentIndex == 0,
           ),
+
           Expanded(child: _pages[_currentIndex]),
         ],
       ),

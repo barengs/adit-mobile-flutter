@@ -20,41 +20,40 @@ class CustomHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
-      decoration: BoxDecoration(
-        color: Color(0xFF21ABA5),
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          if (title != null) ...[
-            Center(
-              child: Text(
-                title!,
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.white,
-                  fontFamily: 'Righteous',
-                  fontWeight: FontWeight.w400,
-                ),
-              ),
-            ),
-            SizedBox(height: 20), // Dikurangi dari 30 menjadi 20
-          ],
-
-          // Row utama dengan layout terpisah
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return Stack(
+      children: [
+        Container(
+          height: 125,
+          width: double.infinity,
+          padding: const EdgeInsets.symmetric(horizontal: 20),
+          decoration: const BoxDecoration(color: Color(0xFF21ABA5)),
+          child: Stack(
             children: [
-              // Kiri: Profil user dengan padding untuk menggeser ke bawah
+              // Title di tengah
+              if (title != null)
+                Positioned(
+                  top:
+                      65,
+                  left: 0,
+                  right: 0,
+                  child: Center(
+                    child: Text(
+                      title!,
+                      style: const TextStyle(
+                        fontSize: 25,
+                        color: Colors.white,
+                        fontFamily: 'Righteous',
+                        fontWeight: FontWeight.w400,
+                      ),
+                    ),
+                  ),
+                ),
+
+              // Info profil (kiri bawah)
               if (username != null || npm != null || profileImageUrl != null)
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 30,
-                  ), // Adjust this value as needed
+                Positioned(
+                  bottom: 15,
+                  left: 0,
                   child: Row(
                     children: [
                       if (profileImageUrl != null)
@@ -72,14 +71,14 @@ class CustomHeader extends StatelessWidget {
                             backgroundImage: NetworkImage(profileImageUrl!),
                           ),
                         ),
-                      if (profileImageUrl != null) SizedBox(width: 12),
+                      const SizedBox(width: 12),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           if (username != null)
                             Text(
                               username!,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -89,7 +88,7 @@ class CustomHeader extends StatelessWidget {
                           if (npm != null)
                             Text(
                               npm!,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontSize: 14,
                                 color: Colors.white,
                                 fontFamily: 'RobotoSlab',
@@ -99,27 +98,27 @@ class CustomHeader extends StatelessWidget {
                       ),
                     ],
                   ),
-                )
-              else
-                SizedBox.shrink(),
+                ),
 
-              // Kanan: Ikon notifikasi dan setting dengan padding terpisah
+              // Ikon kanan bawah
               if (showNotificationIcon || showSettingsIcon)
-                Padding(
-                  padding: EdgeInsets.only(
-                    top: 40,
-                  ), // Nilai padding untuk notif & setting
+                Positioned(
+                  bottom: 20,
+                  right: 0,
                   child: Row(
                     children: [
                       if (showNotificationIcon)
                         IconButton(
-                          icon: Icon(Icons.notifications, color: Colors.white),
+                          icon: const Icon(
+                            Icons.notifications,
+                            color: Colors.white,
+                          ),
                           iconSize: 30,
                           onPressed: () {},
                         ),
                       if (showSettingsIcon)
                         IconButton(
-                          icon: Icon(Icons.settings, color: Colors.white),
+                          icon: const Icon(Icons.settings, color: Colors.white),
                           iconSize: 30,
                           onPressed: () {},
                         ),
@@ -128,8 +127,21 @@ class CustomHeader extends StatelessWidget {
                 ),
             ],
           ),
-        ],
-      ),
+        ),
+
+        Positioned(
+          top: -100,
+          right: -150,
+          child: Container(
+            width: 280,
+            height: 280,
+            decoration: BoxDecoration(
+              color: Colors.white.withValues(alpha: 0.1),
+              shape: BoxShape.circle,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
