@@ -26,7 +26,6 @@ class CustomHeader extends StatelessWidget {
           height: 125,
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 20),
-          decoration: const BoxDecoration(color: Color(0xFF21ABA5)),
           child: Stack(
             children: [
               // Title di tengah

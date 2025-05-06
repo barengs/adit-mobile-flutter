@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:siakad/widgets/custom_bottom_nav_bar.dart';
 import 'package:siakad/widgets/custom_header.dart';
+import 'package:siakad/widgets/content_container.dart';
+import 'package:siakad/constant/app_colors.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -21,18 +23,16 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.primary,
       body: Column(
         children: [
           CustomHeader(
-            title: _currentIndex == 0 ? null : (_currentIndex == 1 ? 'Presensi' : 'Informasi'),
-            username:
+            title:
                 _currentIndex == 0
-                    ? 'Addis'
-                    : null, // hanya tampilkan username di Dashboard
-            npm:
-                _currentIndex == 0
-                    ? '12345678'
-                    : null,
+                    ? null
+                    : (_currentIndex == 1 ? 'Presensi' : 'Informasi'),
+            username: _currentIndex == 0 ? 'Addis' : null,
+            npm: _currentIndex == 0 ? '5161011016' : null,
             profileImageUrl:
                 _currentIndex == 0
                     ? 'https://avatars.githubusercontent.com/u/583231?v=4'
@@ -40,8 +40,7 @@ class _DashboardState extends State<Dashboard> {
             showNotificationIcon: _currentIndex == 0,
             showSettingsIcon: _currentIndex == 0,
           ),
-
-          Expanded(child: _pages[_currentIndex]),
+          ContentContainer(child: _pages[_currentIndex]),
         ],
       ),
       bottomNavigationBar: CustomBottomNavBar(
