@@ -5,7 +5,7 @@ import 'package:siakad/widgets/custom_header.dart';
 import 'package:siakad/widgets/content_container.dart';
 import 'dashboard_content.dart';
 import 'package:siakad/constant/app_colors.dart';
-import 'package:siakad/screen-3/presensi.dart';
+import 'package:siakad/presensi/presensi.dart';
 
 final List<Widget> _pages = [
     const DashboardContent(),

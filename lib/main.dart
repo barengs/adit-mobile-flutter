@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'screen-2/dashboard.dart';
+import 'dashboard/dashboard.dart';
 // import 'package:flutter/services.dart';
 
 void main() {
