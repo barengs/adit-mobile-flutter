@@ -3,7 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:siakad/widgets/custom_bottom_nav_bar.dart';
 import 'package:siakad/widgets/custom_header.dart';
 import 'package:siakad/widgets/content_container.dart';
+import 'dashboard_content.dart';
 import 'package:siakad/constant/app_colors.dart';
+import 'package:siakad/screen-3/presensi.dart';
+
+final List<Widget> _pages = [
+    const DashboardContent(),
+    const Presensi(),
+    const Text('info'),
+  ];
+
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -13,13 +22,6 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   int _currentIndex = 0;
-
-  final List<Widget> _pages = [
-    Center(child: Text('Dashboard')),
-    Center(child: Text('QR Page')),
-    Center(child: Text('Information Page')),
-  ];
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
