@@ -30,7 +30,7 @@ class _DashboardState extends State<Dashboard> {
             title:
                 _currentIndex == 0
                     ? null
-                    : (_currentIndex == 1 ? 'Presensi' : 'Informasi'),
+                    : (_currentIndex == 1 ? 'Presensi' : 'Info'),
             username: _currentIndex == 0 ? 'Addis' : null,
             npm: _currentIndex == 0 ? '5161011016' : null,
             profileImageUrl:
