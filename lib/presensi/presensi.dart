@@ -6,7 +6,7 @@ class Presensi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('oke')),
+       backgroundColor: Colors.white,
       body: Center(
         child: Text('oke'),
       ),
