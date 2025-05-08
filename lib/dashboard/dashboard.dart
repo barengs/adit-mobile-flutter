@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:siakad/widgets/custom_bottom_nav_bar.dart';
 import 'package:siakad/widgets/custom_header.dart';
 import 'package:siakad/widgets/content_container.dart';
+import 'package:siakad/info/info.dart';
 import 'dashboard_content.dart';
 import 'package:siakad/constant/app_colors.dart';
 import 'package:siakad/presensi/presensi.dart';
@@ -10,7 +11,7 @@ import 'package:siakad/presensi/presensi.dart';
 final List<Widget> _pages = [
     const DashboardContent(),
     const Presensi(),
-    const Text('info'),
+    Info(),
   ];
 
 

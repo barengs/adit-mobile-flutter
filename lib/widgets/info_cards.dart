@@ -19,7 +19,6 @@ class InfoCards extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-
       decoration: BoxDecoration(
         color: AppColors.bgColor,
         borderRadius: BorderRadius.circular(12),
@@ -55,7 +54,7 @@ class InfoCards extends StatelessWidget {
               ),
             ),
           Padding(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 0), // Mengurangi padding bottom
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -85,7 +84,7 @@ class InfoCards extends StatelessWidget {
 
           // Button
           Padding(
-            padding: const EdgeInsets.all(12),
+            padding: const EdgeInsets.fromLTRB(12, 14, 12, 14),
             child: GestureDetector(
               onTap: onTap,
               child: Container(

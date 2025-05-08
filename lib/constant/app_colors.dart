@@ -6,5 +6,7 @@ class AppColors {
 
   static const Color textWhite = Color(0xFFFFFFFF);
 
+  static const Color bgColor = Color(0xFFFFFFFF);
+
   static const Color accent = Color(0xFF2DBAB1);
 }

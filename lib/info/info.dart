@@ -16,7 +16,7 @@ class InfoState extends State<Info> {
       backgroundColor: AppColors.bgColor,
       body: InfoCards(
         imageUrl: 'assets/images/maxresdefault.jpg',
-        title: 'Mahasiswa UTY Bangun StartUp',
+        title: 'Mahasiswa UTY Bangun Startup',
         description:
             'Incididunt nostrud quis culpa nulla qui reprehenderit enim magna ex cillum sint. Eiusmod id dolor officia ea non magna excepteur et esse pariatur quis. Duis dolore consequat nulla ex irure nulla consectetur deserunt do reprehenderit labore proident aliqua. Officia voluptate duis tempor ad laboris veniam ad reprehenderit cillum et velit culpa sit. Exercitation sit magna deserunt nisi. Irure non aute excepteur laboris adipisicing ex labore. Amet ex magna nostrud irure.',
       ),
