@@ -103,6 +103,12 @@ flutter:
           weight: 800
         - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-Black.ttf
           weight: 900
+    - family: Sarabun
+      fonts:
+        - asset: assets\fonts\sarabun-2-cufonfonts-webfont\Sarabun-Light.ttf
+          weight: 300
+        - asset: assets\fonts\sarabun-2-cufonfonts-webfont\Sarabun-SemiBold.ttf
+          weight: 600
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
