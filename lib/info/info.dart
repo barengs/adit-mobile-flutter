@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 import 'package:siakad/widgets/info_cards.dart';
 import 'package:siakad/constant/app_colors.dart';
 
@@ -10,16 +12,58 @@ class Info extends StatefulWidget {
 }
 
 class InfoState extends State<Info> {
+  List<Map<String, String>> infoItems = [];
+
+  @override
+  void initState() {
+    super.initState();
+    fetchDummyNews();
+  }
+
+  Future<void> fetchDummyNews() async {
+    final response = await http.get(
+      Uri.parse('https://picsum.photos/v2/list?page=3&limit=5'),
+    );
+
+    if (response.statusCode == 200) {
+      final List data = jsonDecode(response.body);
+
+      setState(() {
+        infoItems =
+            data.map<Map<String, String>>((item) {
+              return {
+                'imageUrl': item['download_url'],
+                'title': 'Gambar oleh ${item['author']}',
+                'description': 'Non culpa est esse aliqua aliqua officia duis excepteur do irure irure reprehenderit cupidatat id. Aliquip irure mollit duis elit. Proident ex nulla magna veniam nulla veniam ut. Dolore et aliqua reprehenderit aute ea officia ipsum sit do labore fugiat aute qui. Exercitation ullamco sit voluptate aute elit dolore aute id id ea veniam.'
+              };
+            }).toList();
+      });
+    } else {
+      debugPrint('Gagal mengambil data dari API');
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgColor,
-      body: InfoCards(
-        imageUrl: 'assets/images/maxresdefault.jpg',
-        title: 'Mahasiswa UTY Bangun Startup',
-        description:
-            'Incididunt nostrud quis culpa nulla qui reprehenderit enim magna ex cillum sint. Eiusmod id dolor officia ea non magna excepteur et esse pariatur quis. Duis dolore consequat nulla ex irure nulla consectetur deserunt do reprehenderit labore proident aliqua. Officia voluptate duis tempor ad laboris veniam ad reprehenderit cillum et velit culpa sit. Exercitation sit magna deserunt nisi. Irure non aute excepteur laboris adipisicing ex labore. Amet ex magna nostrud irure.',
-      ),
+      body:
+          infoItems.isEmpty
+              ? const Center(child: CircularProgressIndicator())
+              : ListView.builder(
+                padding: const EdgeInsets.symmetric(vertical: 16),
+                itemCount: infoItems.length,
+                itemBuilder: (context, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: InfoCards(
+                      imageUrl: infoItems[index]['imageUrl']!,
+                      title: infoItems[index]['title']!,
+                      description: infoItems[index]['description']!,
+                    ),
+                  );
+                },
+              ),
     );
   }
 }

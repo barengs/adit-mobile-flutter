@@ -39,7 +39,7 @@ class InfoCards extends StatelessWidget {
               borderRadius: const BorderRadius.vertical(
                 top: Radius.circular(12),
               ),
-              child: Image.asset(
+              child: Image.network(
                 imageUrl!,
                 height: 116,
                 width: double.infinity,
@@ -47,14 +47,20 @@ class InfoCards extends StatelessWidget {
                 errorBuilder:
                     (_, __, ___) => Container(
                       height: 116,
-                      color: Colors.grey[300],
                       width: double.infinity,
+                      color: Colors.grey[300],
                       child: const Icon(Icons.broken_image, size: 50),
                     ),
               ),
             ),
+
           Padding(
-            padding: const EdgeInsets.fromLTRB(12, 12, 12, 0), // Mengurangi padding bottom
+            padding: const EdgeInsets.fromLTRB(
+              12,
+              12,
+              12,
+              0,
+            ), // Mengurangi padding bottom
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
