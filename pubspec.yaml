@@ -84,6 +84,7 @@ flutter:
       fonts:
         - asset: assets/fonts/Righteous/Righteous-Regular.ttf
           weight: 400
+
     - family: RobotoSlab
       fonts:
         - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-Thin.ttf
@@ -104,6 +105,12 @@ flutter:
           weight: 800
         - asset: assets/fonts/Roboto_Slab/static/RobotoSlab-Black.ttf
           weight: 900
+
+    - family: 'Roboto'
+      fonts:
+        - asset: assets\fonts\Roboto\Roboto-Light.ttf
+          weight: 300
+
     - family: Sarabun
       fonts:
         - asset: assets\fonts\sarabun-2-cufonfonts-webfont\Sarabun-Light.ttf
