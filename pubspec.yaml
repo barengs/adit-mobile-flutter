@@ -35,6 +35,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   http: ^1.4.0
+  flutter_svg: ^2.1.0
 
 
 dev_dependencies:
@@ -62,6 +63,7 @@ flutter:
   assets:
     - assets/images/istockphoto-1393542225-170667a.jpg
     - assets/images/maxresdefault.jpg
+    - assets/svg/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
