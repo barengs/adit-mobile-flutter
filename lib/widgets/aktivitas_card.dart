@@ -23,7 +23,7 @@ class AktivitasCard extends StatelessWidget {
       children: [
         // Bagian Header
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+          padding: const EdgeInsets.symmetric(vertical: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -47,18 +47,13 @@ class AktivitasCard extends StatelessWidget {
                     Text(
                       'Lihat Semuanya',
                       style: TextStyle(
-                        color: Color(0xFF007BFF),
-                        fontSize: 14,
+                        color: Color(0xFFC4C4C4),
+                        fontSize: 12,
                         fontWeight: FontWeight.w600,
                         fontFamily: 'Sarabun',
                       ),
                     ),
                     SizedBox(width: 5),
-                    Icon(
-                      Icons.arrow_forward_ios,
-                      color: Color(0xFF007BFF),
-                      size: 14,
-                    ),
                   ],
                 ),
               ),
