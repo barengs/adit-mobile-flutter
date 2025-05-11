@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:siakad/constant/app_colors.dart';
 import 'package:siakad/widgets/aktivitas_card.dart';
 
-class DashboardContent extends StatelessWidget {
+class DashboardContent extends StatefulWidget {
   const DashboardContent({super.key});
 
+  @override
+  State<DashboardContent> createState() => _DashboardContentState();
+}
+
+class _DashboardContentState extends State<DashboardContent> {
   final String imagePath = 'assets/images/maxresdefault.jpg';
 
   @override
@@ -55,7 +60,27 @@ class DashboardContent extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        AktivitasCard()
+        const AktivitasCard(),
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const Text(
+              'Jadwal kuliah hari ini',
+              style: TextStyle(
+                fontFamily: 'Sarabun',
+                fontWeight: FontWeight.w600,
+                fontSize: 16,
+              ),
+            ),
+            Icon(
+              Icons.arrow_forward_outlined,
+              size: 25,
+              color: const Color(0xFFC4C4C4),
+            ),
+          ],
+        ),
+        Align(),
       ],
     );
   }
