@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:siakad/constant/app_colors.dart';
 import 'package:siakad/widgets/aktivitas_card.dart';
+import 'package:siakad/widgets/jadwal_kuliah_card.dart';
 
 class DashboardContent extends StatefulWidget {
   const DashboardContent({super.key});
@@ -80,7 +81,16 @@ class _DashboardContentState extends State<DashboardContent> {
             ),
           ],
         ),
-        Align(),
+        SizedBox(height: 15),
+        JadwalKuliahCard(
+          tanggal: 27,
+          hari: 'Rabu',
+          mataKuliah: 'Rekayasa Web Praktik',
+          deskripsi: 'Mata kuliah praktik',
+          jamMulai: '09:40',
+          jamSelesai: '12:10',
+          lokasi: 'E.3.3',
+        ),
       ],
     );
   }
