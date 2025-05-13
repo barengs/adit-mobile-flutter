@@ -11,7 +11,7 @@ import 'package:siakad/presensi/presensi.dart';
 final List<Widget> _pages = [
     const DashboardContent(),
     const Presensi(),
-    Info(),
+    const Info(),
   ];
 
 

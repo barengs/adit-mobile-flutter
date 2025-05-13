@@ -17,7 +17,7 @@ class ContentContainer extends StatelessWidget {
             topRight: Radius.circular(25),
           ),
         ),
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.only(top: 16, bottom: 0, left: 16, right: 16), // Padding tetap
         child: child,
       ),
     );
