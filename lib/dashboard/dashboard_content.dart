@@ -49,6 +49,7 @@ class _DashboardContentState extends State<DashboardContent> {
             'Jl. Siliwangi (Ringroad Utara) Jombor Sleman D.I Yogyakarta',
             style: TextStyle(
               fontSize: 10.0,
+              color: Color.fromRGBO(107, 107, 107, 0.69),
               fontFamily: 'Roboto',
               fontWeight: FontWeight.w300,
             ),
