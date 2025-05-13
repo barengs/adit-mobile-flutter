@@ -23,7 +23,7 @@ class CustomHeader extends StatelessWidget {
     return Stack(
       children: [
         Container(
-          height: 125,
+          height: 110,
           width: double.infinity,
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Stack(
