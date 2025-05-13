@@ -32,7 +32,7 @@ class CustomHeader extends StatelessWidget {
               if (title != null)
                 Positioned(
                   top:
-                      65,
+                      55,
                   left: 0,
                   right: 0,
                   child: Center(
