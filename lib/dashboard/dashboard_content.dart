@@ -3,6 +3,7 @@ import 'package:siakad/constant/app_colors.dart';
 import 'package:siakad/widgets/aktivitas_card.dart';
 import 'package:siakad/widgets/jadwal_kuliah_card.dart';
 import 'package:siakad/widgets/info_cards.dart';
+import 'package:siakad/widgets/jadwal_kuliah_header.dart';
 
 class DashboardContent extends StatefulWidget {
   const DashboardContent({super.key});
@@ -85,9 +86,8 @@ class _DashboardContentState extends State<DashboardContent> {
             ],
           ),
           const SizedBox(height: 15),
+          const JadwalKuliahHeader(tanggal: 13, hari: 'Senin'),
           JadwalKuliahCard(
-            tanggal: 27,
-            hari: 'Rabu',
             mataKuliah: 'Rekayasa Web Praktik',
             deskripsi: 'Mata kuliah praktik',
             jamMulai: '09:40',
