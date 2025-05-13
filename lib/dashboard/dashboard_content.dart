@@ -12,7 +12,7 @@ class DashboardContent extends StatefulWidget {
 }
 
 class _DashboardContentState extends State<DashboardContent> {
-  final String imagePath = 'assets/images/maxresdefault.jpg';
+  final String imagePath = 'assets/images/universitas_hanvard.png';
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class _DashboardContentState extends State<DashboardContent> {
               borderRadius: BorderRadius.circular(25),
               child: Image.asset(
                 imagePath,
-                height: 150,
+                height: 151,
                 width: double.infinity,
                 fit: BoxFit.cover,
                 errorBuilder:
