@@ -8,7 +8,7 @@ class AktivitasCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final items = [
-      {'icon': Icons.book, 'title': 'Jadwal'},
+      {'icon': 'assets/svg/jadwal.svg', 'title': 'Jadwal'},
       {'icon': 'assets/svg/presensi.svg', 'title': 'Presensi'},
       {'icon': 'assets/svg/krs.svg', 'title': 'KRS'},
       {'icon': 'assets/svg/khs.svg', 'title': 'KHS'},
