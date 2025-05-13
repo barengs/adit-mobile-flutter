@@ -9,10 +9,10 @@ class AktivitasCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final items = [
       {'icon': Icons.book, 'title': 'Jadwal'},
-      {'icon': Icons.person_pin_rounded, 'title': 'Presensi'},
-      {'icon': Icons.vertical_shades_closed_rounded, 'title': 'KRS'},
-      {'icon': Icons.document_scanner_rounded, 'title': 'KHS'},
-      {'icon': Icons.school, 'title': 'Elearning'},
+      {'icon': 'assets/svg/presensi.svg', 'title': 'Presensi'},
+      {'icon': 'assets/svg/krs.svg', 'title': 'KRS'},
+      {'icon': 'assets/svg/khs.svg', 'title': 'KHS'},
+      {'icon': 'assets/svg/elearning.svg', 'title': 'Elearning'},
       {'icon': Icons.account_balance_wallet_rounded, 'title': 'Keuangan'},
       {'icon': 'assets/svg/ta.svg', 'title': 'TA'},
       {'icon': Icons.list_alt_outlined, 'title': 'Kegiatan'},
