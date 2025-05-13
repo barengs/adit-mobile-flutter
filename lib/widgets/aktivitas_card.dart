@@ -32,8 +32,8 @@ class AktivitasCard extends StatelessWidget {
                 'Aktivitas',
                 style: TextStyle(
                   color: Color(0xFF333333),
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
                   fontFamily: 'Sarabun',
                 ),
               ),

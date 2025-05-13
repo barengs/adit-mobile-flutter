@@ -94,12 +94,32 @@ class _DashboardContentState extends State<DashboardContent> {
             jamSelesai: '12:10',
             lokasi: 'E.3.3',
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: 25),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'Informasi untuk kamu',
+                style: TextStyle(
+                  fontFamily: 'Sarabun',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16,
+                ),
+              ),
+              Icon(
+                Icons.arrow_forward_outlined,
+                size: 25,
+                color: const Color(0xFFC4C4C4),
+              ),
+            ],
+          ),
+          const SizedBox(height: 15),
           InfoCards(
-              imageUrl: 'assets/images/maxresdefault.jpg', // URL gambar
-              title: 'Pengumuman Akademik',
-              description: 'Informasi terbaru mengenai jadwal perkuliahan dan ujian.',
-            ),
+            imageUrl: 'assets/images/maxresdefault.jpg',
+            title: 'Pengumuman Akademik',
+            description:
+                'Informasi terbaru mengenai jadwal perkuliahan dan ujian.',
+          ),
         ],
       ),
     );

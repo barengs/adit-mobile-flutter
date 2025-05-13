@@ -9,11 +9,10 @@ import 'package:siakad/constant/app_colors.dart';
 import 'package:siakad/presensi/presensi.dart';
 
 final List<Widget> _pages = [
-    const DashboardContent(),
-    const Presensi(),
-    const Info(),
-  ];
-
+  const DashboardContent(),
+  const Presensi(),
+  const Info(),
+];
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
