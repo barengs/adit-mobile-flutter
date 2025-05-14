@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:siakad/constant/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:siakad/absensi/absensi.dart';
 
 class AktivitasCard extends StatelessWidget {
   const AktivitasCard({super.key});
@@ -27,7 +28,6 @@ class AktivitasCard extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              // Text Aktivitas
               const Text(
                 'Aktivitas',
                 style: TextStyle(
@@ -37,10 +37,16 @@ class AktivitasCard extends StatelessWidget {
                   fontFamily: 'Sarabun',
                 ),
               ),
-              // Tombol Lihat Semuanya
               GestureDetector(
                 onTap: () {
-                  Text('oke');
+                  // Navigasi saat 'Lihat Semuanya' diklik (opsional)
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text(
+                        'Navigasi ke semua aktivitas belum tersedia',
+                      ),
+                    ),
+                  );
                 },
                 child: Row(
                   children: const [
@@ -77,52 +83,76 @@ class AktivitasCard extends StatelessWidget {
               children:
                   items.map((item) {
                     final icon = item['icon'];
-                    return Container(
-                      width: 60,
-                      margin: const EdgeInsets.only(right: 20),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                            width: 60,
-                            height: 60,
-                            decoration: const BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColors.accent,
-                            ),
-                            child: Center(
-                              child:
-                                  icon is IconData
-                                      ? Icon(
-                                        icon,
-                                        color: Colors.white,
-                                        size: 35,
-                                      )
-                                      : SvgPicture.asset(
-                                        icon as String,
-                                        width: 35,
-                                        height: 35,
-                                        colorFilter: const ColorFilter.mode(
-                                          Colors.white,
-                                          BlendMode.srcIn,
+                    final title = item['title'] as String;
+
+                    return GestureDetector(
+                      onTap: () {
+                        switch (title) {
+                          case 'Presensi':
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Absensi(),
+                              ),
+                            );
+                            break;
+                          default:
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'Halaman $title belum tersedia',
+                                ),
+                              ),
+                            );
+                        }
+                      },
+                      child: Container(
+                        width: 60,
+                        margin: const EdgeInsets.only(right: 20),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Container(
+                              width: 60,
+                              height: 60,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.accent,
+                              ),
+                              child: Center(
+                                child:
+                                    icon is IconData
+                                        ? Icon(
+                                          icon,
+                                          color: Colors.white,
+                                          size: 35,
+                                        )
+                                        : SvgPicture.asset(
+                                          icon as String,
+                                          width: 35,
+                                          height: 35,
+                                          colorFilter: const ColorFilter.mode(
+                                            Colors.white,
+                                            BlendMode.srcIn,
+                                          ),
                                         ),
-                                      ),
-                            ),
-                          ),
-                          const SizedBox(height: 6),
-                          FittedBox(
-                            child: Text(
-                              item['title'] as String,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                color: Color(0xBF000000),
-                                fontSize: 11,
-                                fontFamily: 'Sarabun',
-                                fontWeight: FontWeight.w600,
                               ),
                             ),
-                          ),
-                        ],
+                            const SizedBox(height: 6),
+                            FittedBox(
+                              child: Text(
+                                title,
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                  color: Color(0xBF000000),
+                                  fontSize: 11,
+                                  fontFamily: 'Sarabun',
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     );
                   }).toList(),
