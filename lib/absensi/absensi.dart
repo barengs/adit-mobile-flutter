@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:siakad/widgets/custom_header.dart';
+import 'package:siakad/widgets/content_container.dart';
+import 'package:siakad/constant/app_colors.dart';
+import 'package:siakad/widgets/absensi_card.dart';
 
 class Absensi extends StatefulWidget {
   const Absensi({super.key});
@@ -8,11 +12,43 @@ class Absensi extends StatefulWidget {
 }
 
 class _AbsensiState extends State<Absensi> {
+  final List<Map<String, String>> absensiData = [
+    {
+      "title": "Absensi 1",
+      "detail": "Detail absensi akan ditampilkan di sini.",
+    },
+    {
+      "title": "Absensi 2",
+      "detail": "Detail absensi akan ditampilkan di sini.",
+    },
+    {
+      "title": "Absensi 3",
+      "detail": "Detail absensi akan ditampilkan di sini.",
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Absensi')),
-      body: const Center(child: Text('Ini halaman absensi')),
+      backgroundColor: AppColors.primary,
+      body: Column(
+        children: [
+          CustomHeader(title: 'Absensi'),
+          Expanded(
+            child: ContentContainer(
+              child: ListView.builder(
+                physics: const ClampingScrollPhysics(),
+                itemCount: absensiData.length,
+                itemBuilder: (context, index) {
+                  return AbsensiCard(
+                    isRounded:  index == 0,
+                  );
+                },
+              ),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
