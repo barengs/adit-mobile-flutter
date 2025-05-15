@@ -38,10 +38,15 @@ class _AbsensiState extends State<Absensi> {
             child: ContentContainer(
               child: ListView.builder(
                 physics: const ClampingScrollPhysics(),
-                itemCount: absensiData.length,
+                padding: const EdgeInsets.symmetric(horizontal: 16),
                 itemBuilder: (context, index) {
-                  return AbsensiCard(
-                    isRounded:  index == 0,
+                  return Padding(
+                    padding: EdgeInsets.only(bottom: index == absensiData.length - 1 ? 0 : 20),
+                    child: AbsensiCard(
+                      isRounded: index == 0,
+                      // title: absensiData[index]['title']!,
+                      // detail: absensiData[index]['detail']!,
+                    ),
                   );
                 },
               ),

@@ -29,14 +29,14 @@ class InfoState extends State<Info> {
       final List data = jsonDecode(response.body);
 
       setState(() {
-        infoItems =
-            data.map<Map<String, String>>((item) {
-              return {
-                'imageUrl': item['download_url'],
-                'title': 'Gambar oleh ${item['author']}',
-                'description': 'Non culpa est esse aliqua aliqua officia duis excepteur do irure irure reprehenderit cupidatat id. Aliquip irure mollit duis elit. Proident ex nulla magna veniam nulla veniam ut. Dolore et aliqua reprehenderit aute ea officia ipsum sit do labore fugiat aute qui. Exercitation ullamco sit voluptate aute elit dolore aute id id ea veniam.'
-              };
-            }).toList();
+        infoItems = data.map<Map<String, String>>((item) {
+          return {
+            'imageUrl': item['download_url'],
+            'title': 'Gambar oleh ${item['author']}',
+            'description':
+                'Non culpa est esse aliqua aliqua officia duis excepteur do irure irure reprehenderit cupidatat id. Aliquip irure mollit duis elit. Proident ex nulla magna veniam nulla veniam ut. Dolore et aliqua reprehenderit aute ea officia ipsum sit do labore fugiat aute qui. Exercitation ullamco sit voluptate aute elit dolore aute id id ea veniam.'
+          };
+        }).toList();
       });
     } else {
       debugPrint('Gagal mengambil data dari API');
@@ -47,23 +47,24 @@ class InfoState extends State<Info> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.bgColor,
-      body:
-          infoItems.isEmpty
-              ? const Center(child: CircularProgressIndicator())
-              : ListView.builder(
-                padding: const EdgeInsets.symmetric(vertical: 16),
-                itemCount: infoItems.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 20),
-                    child: InfoCards(
-                      imageUrl: infoItems[index]['imageUrl']!,
-                      title: infoItems[index]['title']!,
-                      description: infoItems[index]['description']!,
-                    ),
-                  );
-                },
+      body: infoItems.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : ListView.builder(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 16,
               ),
+              itemCount: infoItems.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 20),
+                  child: InfoCards(
+                    imageUrl: infoItems[index]['imageUrl']!,
+                    title: infoItems[index]['title']!,
+                    description: infoItems[index]['description']!,
+                  ),
+                );
+              },
+            ),
     );
   }
 }

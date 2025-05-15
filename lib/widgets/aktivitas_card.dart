@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:siakad/constant/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:siakad/absensi/absensi.dart';
+import 'package:siakad/jadwal_kuliah/jadwal_kuliah.dart';
 
 class AktivitasCard extends StatelessWidget {
   const AktivitasCard({super.key});
@@ -88,6 +89,13 @@ class AktivitasCard extends StatelessWidget {
                     return GestureDetector(
                       onTap: () {
                         switch (title) {
+                          case 'Jadwal':
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => JadwalKuliah(),
+                              ),
+                            );
                           case 'Presensi':
                             Navigator.push(
                               context,
@@ -99,9 +107,7 @@ class AktivitasCard extends StatelessWidget {
                           default:
                             ScaffoldMessenger.of(context).showSnackBar(
                               SnackBar(
-                                content: Text(
-                                  'Halaman $title belum tersedia',
-                                ),
+                                content: Text('Halaman $title belum tersedia'),
                               ),
                             );
                         }
