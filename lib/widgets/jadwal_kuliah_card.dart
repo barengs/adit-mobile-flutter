@@ -8,6 +8,7 @@ class JadwalKuliahCard extends StatelessWidget {
   final String jamMulai;
   final String jamSelesai;
   final String lokasi;
+  final bool isVisible;
 
   const JadwalKuliahCard({
     super.key,
@@ -16,6 +17,7 @@ class JadwalKuliahCard extends StatelessWidget {
     required this.jamMulai,
     required this.jamSelesai,
     required this.lokasi,
+    this.isVisible = true,
   });
 
   @override
@@ -24,7 +26,6 @@ class JadwalKuliahCard extends StatelessWidget {
       padding: const EdgeInsets.only(top: 16),
       child: Stack(
         children: [
-          // Ganti Positioned dengan Align dan margin
           Align(
             alignment: Alignment.topLeft,
             child: Container(
@@ -89,11 +90,14 @@ class JadwalKuliahCard extends StatelessWidget {
                 ),
 
                 // Status Icon
-                Transform.translate(
-                  offset: const Offset(5, 0),
-                  child: SvgPicture.asset(
-                    'assets/svg/radio_button_checked.svg',
-                    width: 20,
+                Visibility(
+                  visible: isVisible,
+                  child: Transform.translate(
+                    offset: const Offset(5, 0),
+                    child: SvgPicture.asset(
+                      'assets/svg/radio_button_checked.svg',
+                      width: 20,
+                    ),
                   ),
                 ),
               ],
