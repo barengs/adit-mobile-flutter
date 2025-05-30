@@ -16,6 +16,88 @@ class JadwalKuliah extends StatefulWidget {
 class _JadwalKuliahState extends State<JadwalKuliah> {
   bool showJadwalLain = false;
 
+  final List<Map<String, dynamic>> jadwalPerHari = [
+    {
+      'hari': 'Senin',
+      'mataKuliah': [
+        {
+          'mataKuliah': 'Matematika Diskrit',
+          'deskripsi': 'Materi logika matematika',
+          'jamMulai': '08:00',
+          'jamSelesai': '10:30',
+          'lokasi': 'D.1.1',
+        },
+      ],
+    },
+    {
+      'hari': 'Selasa',
+      'mataKuliah': [
+        {
+          'mataKuliah': 'Rekayasa Web',
+          'deskripsi': 'Mata kuliah praktik',
+          'jamMulai': '09:40',
+          'jamSelesai': '12:10',
+          'lokasi': 'E.3.3',
+        },
+        {
+          'mataKuliah': 'Algoritma',
+          'deskripsi': 'Teori dan dasar algoritma',
+          'jamMulai': '13:00',
+          'jamSelesai': '15:00',
+          'lokasi': 'E.1.1',
+        },
+      ],
+    },
+    {
+      'hari': 'Rabu',
+      'mataKuliah': [
+        {
+          'mataKuliah': 'Pemrograman Mobile',
+          'deskripsi': 'Flutter',
+          'jamMulai': '10:00',
+          'jamSelesai': '12:00',
+          'lokasi': 'Lab Komputer',
+        },
+      ],
+    },
+    {
+      'hari': 'Kamis',
+      'mataKuliah': [
+        {
+          'mataKuliah': 'Jaringan Komputer',
+          'deskripsi': 'Dasar jaringan',
+          'jamMulai': '08:00',
+          'jamSelesai': '10:00',
+          'lokasi': 'D.2.3',
+        },
+      ],
+    },
+    {
+      'hari': 'Jumat',
+      'mataKuliah': [
+        {
+          'mataKuliah': 'Sistem Operasi',
+          'deskripsi': 'Manajemen proses dan memori',
+          'jamMulai': '13:00',
+          'jamSelesai': '15:30',
+          'lokasi': 'D.3.2',
+        },
+      ],
+    },
+    {
+      'hari': 'Sabtu',
+      'mataKuliah': [
+        {
+          'mataKuliah': 'Etika Profesi',
+          'deskripsi': 'Etika dalam dunia kerja IT',
+          'jamMulai': '09:00',
+          'jamSelesai': '11:00',
+          'lokasi': 'Aula Utama',
+        },
+      ],
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,13 +111,13 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const SizedBox(height: 18),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: const JadwalKuliahHeader(tanggal: 12, hari: 'Rabu'),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12),
+                    child: JadwalKuliahHeader(tanggal: 12, hari: 'Rabu'),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: const JadwalKuliahCard(
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 12),
+                    child: JadwalKuliahCard(
                       showHeader: false,
                       mataKuliah: 'Rekayasa Web Praktik',
                       deskripsi: 'Mata kuliah praktik',
@@ -45,8 +127,8 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  
-                  // Bagian header yang bisa diklik
+
+                  // Klikable header
                   InkWell(
                     onTap: () {
                       setState(() {
@@ -103,86 +185,45 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                     ),
                   ),
 
+                  // Jadwal kuliah pada hari lainnya
                   if (showJadwalLain)
                     Expanded(
                       child: SingleChildScrollView(
                         child: Column(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                              ),
-                              child: JadwalKuliahCard(
-                                hari: 'Senin',
-                                jumlahMatahKuliah: '1',
-                                mataKuliah: 'Rekayasa Web Praktik',
-                                deskripsi: 'Mata kuliah praktik',
-                                jamMulai: '09:40',
-                                jamSelesai: '12:10',
-                                lokasi: 'E.3.3',
-                                isVisible: false,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                              ),
-                              child: Column(
-                                children: [
-                                  JadwalKuliahCard(
-                                    hari: 'Selasa',
-                                    jumlahMatahKuliah: '2',
-                                    mataKuliah: 'Rekayasa Web Praktik',
-                                    deskripsi: 'Mata kuliah praktik',
-                                    jamMulai: '09:40',
-                                    jamSelesai: '12:10',
-                                    lokasi: 'E.3.3',
-                                    isVisible: false,
+                          children:
+                              jadwalPerHari.map((hariData) {
+                                final hari = hariData['hari'] as String;
+                                final matkulList =
+                                    hariData['mataKuliah'] as List<dynamic>;
+
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 12,
+                                    vertical: 6,
                                   ),
-                                  JadwalKuliahCard(
-                                    showHeader: false,
-                                    mataKuliah: 'Rekayasa Web Praktik',
-                                    deskripsi: 'Mata kuliah praktik',
-                                    jamMulai: '09:40',
-                                    jamSelesai: '12:10',
-                                    lokasi: 'E.3.3',
-                                    isVisible: false,
+                                  child: Column(
+                                    children: List.generate(matkulList.length, (
+                                      index,
+                                    ) {
+                                      final matkul = matkulList[index];
+                                      return JadwalKuliahCard(
+                                        hari: index == 0 ? hari : null,
+                                        jumlahMatahKuliah:
+                                            index == 0
+                                                ? '${matkulList.length}'
+                                                : null,
+                                        mataKuliah: matkul['mataKuliah'],
+                                        deskripsi: matkul['deskripsi'],
+                                        jamMulai: matkul['jamMulai'],
+                                        jamSelesai: matkul['jamSelesai'],
+                                        lokasi: matkul['lokasi'],
+                                        isVisible: false,
+                                        showHeader: index == 0,
+                                      );
+                                    }),
                                   ),
-                                ],
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                              ),
-                              child: JadwalKuliahCard(
-                                hari: 'Rabu',
-                                jumlahMatahKuliah: '1',
-                                mataKuliah: 'Rekayasa Web Praktik',
-                                deskripsi: 'Mata kuliah praktik',
-                                jamMulai: '09:40',
-                                jamSelesai: '12:10',
-                                lokasi: 'E.3.3',
-                                isVisible: false,
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 12,
-                              ),
-                              child: JadwalKuliahCard(
-                                hari: 'Kamis',
-                                jumlahMatahKuliah: '1',
-                                mataKuliah: 'Rekayasa Web Praktik',
-                                deskripsi: 'Mata kuliah praktik',
-                                jamMulai: '09:40',
-                                jamSelesai: '12:10',
-                                lokasi: 'E.3.3',
-                                isVisible: false,
-                              ),
-                            ),
-                            const SizedBox(height: 20),
-                          ],
+                                );
+                              }).toList(),
                         ),
                       ),
                     ),

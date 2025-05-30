@@ -41,28 +41,33 @@ class JadwalKuliahCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      hari ?? '',
-                      style: const TextStyle(
-                        fontFamily: 'Sarabun',
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black,
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                  ), // atur seberapa tengah
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        hari ?? '',
+                        style: const TextStyle(
+                          fontFamily: 'Sarabun',
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.black,
+                        ),
                       ),
-                    ),
-                    Text(
-                      '$jumlahMatahKuliah MATA KULIAH',
-                      style: const TextStyle(
-                        fontFamily: 'Roboto',
-                        fontSize: 9,
-                        fontWeight: FontWeight.w400,
-                        color: Color.fromRGBO(107, 107, 107, 0.9),
+                      Text(
+                        '$jumlahMatahKuliah MATA KULIAH',
+                        style: const TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: 9,
+                          fontWeight: FontWeight.w400,
+                          color: Color.fromRGBO(107, 107, 107, 0.9),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
                 const SizedBox(height: 4),
               ],
