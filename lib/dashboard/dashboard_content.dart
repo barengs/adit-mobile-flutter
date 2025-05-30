@@ -94,6 +94,7 @@ class _DashboardContentState extends State<DashboardContent> {
             const SizedBox(height: 15),
             const JadwalKuliahHeader(tanggal: 13, hari: 'Senin'),
             JadwalKuliahCard(
+              showHeader: false,
               mataKuliah: 'Rekayasa Web Praktik',
               deskripsi: 'Mata kuliah praktik',
               jamMulai: '09:40',

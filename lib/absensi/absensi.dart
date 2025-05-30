@@ -44,8 +44,8 @@ class _AbsensiState extends State<Absensi> {
                     padding: EdgeInsets.only(bottom: index == absensiData.length - 1 ? 0 : 20),
                     child: AbsensiCard(
                       isRounded: index == 0,
-                      // title: absensiData[index]['title']!,
-                      // detail: absensiData[index]['detail']!,
+                      // mataKuliah: absensiData[index]['title']!,
+                      // waktu: absensiData[index]['detail']!,
                     ),
                   );
                 },
