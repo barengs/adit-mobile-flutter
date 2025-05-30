@@ -157,7 +157,7 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                             width: 31.77,
                             height: 31,
                             decoration: BoxDecoration(
-                              color: AppColors.primary,
+                              color: AppColors.accent,
                               shape: BoxShape.circle,
                             ),
                             padding: const EdgeInsets.all(8),
@@ -178,7 +178,13 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                             showJadwalLain
                                 ? Icons.keyboard_arrow_down_outlined
                                 : Icons.chevron_right_outlined,
-                            color: AppColors.primary,
+                            color:
+                                showJadwalLain
+                                    ? Colors
+                                        .grey
+                                    : AppColors
+                                        .accent,
+                              size: 25,
                           ),
                         ],
                       ),
