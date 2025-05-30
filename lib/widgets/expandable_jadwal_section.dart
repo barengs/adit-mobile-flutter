@@ -31,13 +31,7 @@ class _ExpandableJadwalSectionState extends State<ExpandableJadwalSection> {
               isExpanded = !isExpanded;
             });
           },
-          child: SectionHeader(
-            title: widget.title,
-            icon: Icon(
-              isExpanded ? Icons.expand_more : Icons.chevron_right,
-              color: Colors.black,
-            ),
-          ),
+          child: SectionHeader(title: widget.title),
         ),
 
         // Daftar Jadwal yang muncul saat isExpanded = true

@@ -45,6 +45,7 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                     ),
                   ),
                   const SizedBox(height: 20),
+                  
                   // Bagian header yang bisa diklik
                   InkWell(
                     onTap: () {
@@ -58,8 +59,14 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                       decoration: const BoxDecoration(
                         color: Colors.white,
                         border: Border(
-                          top: BorderSide(color: Color.fromRGBO(196, 196, 196, 0.42), width: 3),
-                          bottom: BorderSide(color: Color.fromRGBO(196, 196, 196, 0.42), width: 3),
+                          top: BorderSide(
+                            color: Color.fromRGBO(196, 196, 196, 0.42),
+                            width: 3,
+                          ),
+                          bottom: BorderSide(
+                            color: Color.fromRGBO(196, 196, 196, 0.42),
+                            width: 3,
+                          ),
                         ),
                       ),
                       child: Row(
@@ -86,21 +93,25 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                           ),
                           const Spacer(),
                           Icon(
-                            showJadwalLain ? Icons.keyboard_arrow_down : Icons.arrow_forward,
+                            showJadwalLain
+                                ? Icons.keyboard_arrow_down_outlined
+                                : Icons.chevron_right_outlined,
                             color: AppColors.primary,
                           ),
                         ],
                       ),
                     ),
                   ),
-                  
+
                   if (showJadwalLain)
                     Expanded(
                       child: SingleChildScrollView(
                         child: Column(
                           children: [
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                              ),
                               child: JadwalKuliahCard(
                                 hari: 'Senin',
                                 jumlahMatahKuliah: '1',
@@ -113,7 +124,9 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                              ),
                               child: Column(
                                 children: [
                                   JadwalKuliahCard(
@@ -139,7 +152,9 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                              ),
                               child: JadwalKuliahCard(
                                 hari: 'Rabu',
                                 jumlahMatahKuliah: '1',
@@ -152,7 +167,9 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                               ),
                             ),
                             Padding(
-                              padding: const EdgeInsets.symmetric(horizontal: 12),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                              ),
                               child: JadwalKuliahCard(
                                 hari: 'Kamis',
                                 jumlahMatahKuliah: '1',
