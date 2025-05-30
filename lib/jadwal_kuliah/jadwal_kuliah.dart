@@ -195,6 +195,7 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                   if (showJadwalLain)
                     Expanded(
                       child: SingleChildScrollView(
+                        padding: const EdgeInsets.only(bottom: 20), // Padding tambahan pada card terakhit agar tidak mepet layar bawah
                         child: Column(
                           children:
                               jadwalPerHari.map((hariData) {
@@ -230,6 +231,7 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                                   ),
                                 );
                               }).toList(),
+                          
                         ),
                       ),
                     ),
