@@ -97,7 +97,12 @@ class AbsensiCard extends StatelessWidget {
               alignment: Alignment.centerLeft,
               child: Text(
                 '50%',
-                style: TextStyle(fontFamily: 'Roboto', fontSize: 24),
+                style: TextStyle(
+                  fontFamily: 'Roboto',
+                  fontWeight: FontWeight.w700,
+                  fontSize: 24,
+                  color: Color.fromRGBO(0, 0, 0, 0.75),
+                ),
               ),
             ),
           ),
