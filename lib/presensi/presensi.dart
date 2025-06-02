@@ -6,9 +6,9 @@ class Presensi extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Colors.white,
+      backgroundColor: Colors.white,
       body: Center(
-        child: Text('oke'),
+        child: Text('oke', style: TextStyle(color: Colors.black, fontSize: 40)),
       ),
     );
   }

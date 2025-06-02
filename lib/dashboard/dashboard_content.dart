@@ -49,6 +49,7 @@ class _DashboardContentState extends State<DashboardContent> {
                 fontSize: 16,
                 fontFamily: 'Sarabun',
                 fontWeight: FontWeight.w700,
+                color: Color.fromRGBO(0, 0, 0, 0.75),
               ),
             ),
             const SizedBox(height: 5),
@@ -82,6 +83,7 @@ class _DashboardContentState extends State<DashboardContent> {
                     fontFamily: 'Sarabun',
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
+                    color: Color.fromRGBO(0, 0, 0, 0.75),
                   ),
                 ),
                 Icon(
@@ -111,6 +113,7 @@ class _DashboardContentState extends State<DashboardContent> {
                     fontFamily: 'Sarabun',
                     fontWeight: FontWeight.w600,
                     fontSize: 16,
+                    color: Color.fromRGBO(0, 0, 0, 0.75),
                   ),
                 ),
                 Icon(

@@ -71,6 +71,7 @@ class InfoCards extends StatelessWidget {
                       fontSize: 16,
                       fontFamily: 'Sarabun',
                       fontWeight: FontWeight.w600,
+                      color: Color.fromRGBO(0, 0, 0, 0.75),
                     ),
                   ),
                 if (description != null)
@@ -82,6 +83,7 @@ class InfoCards extends StatelessWidget {
                       fontSize: 13,
                       fontFamily: 'Sarabun',
                       fontWeight: FontWeight.w300,
+                      color: Color.fromRGBO(0, 0, 0, 0.75),
                     ),
                   ),
               ],
