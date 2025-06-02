@@ -110,9 +110,9 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 18),
+                  const SizedBox(height: 10),
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 12),
+                    padding: EdgeInsets.symmetric(horizontal: 20),
                     child: JadwalKuliahHeader(tanggal: 12, hari: 'Rabu'),
                   ),
                   const Padding(
@@ -153,6 +153,7 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                       ),
                       child: Row(
                         children: [
+                          SizedBox(width: 5),
                           Container(
                             width: 31.77,
                             height: 31,
@@ -160,10 +161,13 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                               color: AppColors.accent,
                               shape: BoxShape.circle,
                             ),
-                            padding: const EdgeInsets.all(8),
-                            child: SvgPicture.asset('assets/svg/calendar.svg'),
+                            padding: const EdgeInsets.all(7),
+                            child: SvgPicture.asset(
+                              'assets/svg/calendar.svg',
+                              fit: BoxFit.scaleDown,
+                            ),
                           ),
-                          const SizedBox(width: 8),
+                          const SizedBox(width: 10),
                           const Text(
                             'Jadwal kuliah saya',
                             style: TextStyle(
@@ -179,12 +183,8 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                                 ? Icons.keyboard_arrow_down_outlined
                                 : Icons.chevron_right_outlined,
                             color:
-                                showJadwalLain
-                                    ? Colors
-                                        .grey
-                                    : AppColors
-                                        .accent,
-                              size: 25,
+                                showJadwalLain ? Colors.grey : AppColors.accent,
+                            size: 25,
                           ),
                         ],
                       ),
@@ -195,7 +195,9 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                   if (showJadwalLain)
                     Expanded(
                       child: SingleChildScrollView(
-                        padding: const EdgeInsets.only(bottom: 20), // Padding tambahan pada card terakhit agar tidak mepet layar bawah
+                        padding: const EdgeInsets.only(
+                          bottom: 20,
+                        ), // Padding tambahan pada card terakhit agar tidak mepet layar bawah
                         child: Column(
                           children:
                               jadwalPerHari.map((hariData) {
@@ -231,7 +233,6 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                                   ),
                                 );
                               }).toList(),
-                          
                         ),
                       ),
                     ),
