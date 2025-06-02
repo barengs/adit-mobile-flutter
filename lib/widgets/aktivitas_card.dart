@@ -72,7 +72,7 @@ class AktivitasCard extends StatelessWidget {
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color: AppColors.boxGray,
+            color:  Color(0x33C4C4C4),
             borderRadius: BorderRadius.circular(12),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:siakad/widgets/info_cards.dart';
-import 'package:siakad/constant/app_colors.dart';
 
 class Info extends StatefulWidget {
   const Info({super.key});
@@ -46,7 +45,7 @@ class InfoState extends State<Info> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.bgColor,
+      backgroundColor: Color(0xFFFFFFFF),
       body: infoItems.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : ListView.builder(

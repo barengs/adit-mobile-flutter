@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:siakad/constant/app_colors.dart';
 import 'package:siakad/widgets/aktivitas_card.dart';
 import 'package:siakad/widgets/jadwal_kuliah_card.dart';
 import 'package:siakad/widgets/info_cards.dart';
@@ -17,6 +16,7 @@ class _DashboardContentState extends State<DashboardContent> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(
@@ -66,7 +66,7 @@ class _DashboardContentState extends State<DashboardContent> {
               width: 54,
               height: 5,
               decoration: BoxDecoration(
-                color: AppColors.primary,
+                color: colors.primary,
                 borderRadius: BorderRadius.circular(4),
               ),
             ),

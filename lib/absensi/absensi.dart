@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:siakad/widgets/custom_header.dart';
 import 'package:siakad/widgets/content_container.dart';
-import 'package:siakad/constant/app_colors.dart';
 import 'package:siakad/widgets/absensi_card.dart';
 
 class Absensi extends StatefulWidget {
@@ -29,8 +28,9 @@ class _AbsensiState extends State<Absensi> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: colors.primary,
       body: Column(
         children: [
           CustomHeader(title: 'Absensi'),

@@ -17,6 +17,7 @@ class AbsensiCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       height: 364,
@@ -48,7 +49,7 @@ class AbsensiCard extends StatelessWidget {
                   width: 52,
                   height: 52,
                   decoration: BoxDecoration(
-                    color: AppColors.primary,
+                    color: colors.primary,
                     shape: BoxShape.circle,
                   ),
                   child: SvgPicture.asset(

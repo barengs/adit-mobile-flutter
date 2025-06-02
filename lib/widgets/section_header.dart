@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:siakad/constant/app_colors.dart';
 
 class SectionHeader extends StatelessWidget {
   final String? title;
@@ -9,6 +8,7 @@ class SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(12),
@@ -28,7 +28,7 @@ class SectionHeader extends StatelessWidget {
             width: 31.77,
             height: 31,
             decoration: BoxDecoration(
-              color: AppColors.primary,
+              color: colors.primary,
               shape: BoxShape.circle,
             ),
             padding: const EdgeInsets.all(8),

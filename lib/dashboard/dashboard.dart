@@ -5,7 +5,6 @@ import 'package:siakad/widgets/custom_header.dart';
 import 'package:siakad/widgets/content_container.dart';
 import 'package:siakad/info/info.dart';
 import 'dashboard_content.dart';
-import 'package:siakad/constant/app_colors.dart';
 import 'package:siakad/presensi/presensi.dart';
 
 final List<Widget> _pages = [
@@ -24,8 +23,9 @@ class _DashboardState extends State<Dashboard> {
   int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: colors.primary,
       body: Column(
         children: [
           CustomHeader(

@@ -20,7 +20,7 @@ class InfoCards extends StatelessWidget {
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColors.bgColor,
+        color: Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -112,7 +112,7 @@ class InfoCards extends StatelessWidget {
                         fontSize: 14,
                         fontFamily: 'Sarabun',
                         fontWeight: FontWeight.w600,
-                        color: AppColors.textWhite,
+                        color: Color(0xFFFFFFFF),
                       ),
                     ),
                     SizedBox(width: 5),

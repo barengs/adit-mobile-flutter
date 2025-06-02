@@ -100,8 +100,9 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Scaffold(
-      backgroundColor: AppColors.primary,
+      backgroundColor: colors.primary,
       body: Column(
         children: [
           const CustomHeader(title: 'Jadwal Kuliah'),
