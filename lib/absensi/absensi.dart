@@ -13,16 +13,16 @@ class Absensi extends StatefulWidget {
 class _AbsensiState extends State<Absensi> {
   final List<Map<String, String>> absensiData = [
     {
-      "title": "Absensi 1",
-      "detail": "Detail absensi akan ditampilkan di sini.",
+      "title": "Testing dan Implementasi",
+      "detail": "Selasa, 08:50 - 10:30 WIB (K-1 H.21)",
     },
     {
-      "title": "Absensi 2",
-      "detail": "Detail absensi akan ditampilkan di sini.",
+      "title": "Rekayasa Web Praktik",
+      "detail": "Rabu, 10:30 - 12:10 WIB (K-2 H.15)",
     },
     {
-      "title": "Absensi 3",
-      "detail": "Detail absensi akan ditampilkan di sini.",
+      "title": "Basis Data Lanjut",
+      "detail": "Kamis, 13:30 - 15:10 WIB (K-1 H.12)",
     },
   ];
 
@@ -39,13 +39,18 @@ class _AbsensiState extends State<Absensi> {
               child: ListView.builder(
                 physics: const ClampingScrollPhysics(),
                 padding: const EdgeInsets.symmetric(horizontal: 16),
+                itemCount:
+                    absensiData
+                        .length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: EdgeInsets.only(bottom: index == absensiData.length - 1 ? 0 : 20),
+                    padding: EdgeInsets.only(
+                      bottom: index == absensiData.length - 1 ? 0 : 20,
+                    ),
                     child: AbsensiCard(
                       isRounded: index == 0,
-                      // mataKuliah: absensiData[index]['title']!,
-                      // waktu: absensiData[index]['detail']!,
+                      mataKuliah: absensiData[index]['title']!,
+                      waktu: absensiData[index]['detail']!,
                     ),
                   );
                 },

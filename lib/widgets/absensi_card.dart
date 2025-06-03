@@ -4,8 +4,15 @@ import 'package:siakad/widgets/attendance_status.dart';
 
 class AbsensiCard extends StatelessWidget {
   final bool isRounded;
+  final String mataKuliah;
+  final String waktu;
 
-  const AbsensiCard({super.key, required this.isRounded});
+  const AbsensiCard({
+    super.key,
+    required this.isRounded,
+    required this.mataKuliah,
+    required this.waktu,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +69,8 @@ class AbsensiCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text(
-                      'Testing dan Implementasi',
+                    Text(
+                      mataKuliah,
                       style: TextStyle(
                         fontFamily: 'Roboto',
                         fontSize: 14,
@@ -72,8 +79,8 @@ class AbsensiCard extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(width: 10, height: 3),
-                    const Text(
-                      'Selasa, 08:50 - 10:30 WIB (K-1 H.21)',
+                    Text(
+                      waktu,
                       style: TextStyle(
                         fontFamily: 'Roboto',
                         fontSize: 9,
