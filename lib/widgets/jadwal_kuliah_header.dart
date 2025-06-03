@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:siakad/constant/app_colors.dart';
 
 class JadwalKuliahHeader extends StatelessWidget {
   final int tanggal;
@@ -13,6 +12,7 @@ class JadwalKuliahHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
@@ -20,7 +20,7 @@ class JadwalKuliahHeader extends StatelessWidget {
           width: 31,
           height: 31,
           decoration: BoxDecoration(
-            color: AppColors.accent,
+            color: colors.secondary,
             shape: BoxShape.circle,
           ),
           alignment: Alignment.center,

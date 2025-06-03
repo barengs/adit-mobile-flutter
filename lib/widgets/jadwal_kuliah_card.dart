@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:siakad/constant/app_colors.dart';
 
 class JadwalKuliahCard extends StatelessWidget {
   final String mataKuliah;
@@ -30,6 +29,7 @@ class JadwalKuliahCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.only(top: 12),
       child: Column(
@@ -85,7 +85,7 @@ class JadwalKuliahCard extends StatelessWidget {
                   margin: const EdgeInsets.only(left: 65),
                   width: 3,
                   height: 90,
-                  color: AppColors.accent,
+                  color: colors.secondary,
                 ),
               ),
               Container(
@@ -134,7 +134,7 @@ class JadwalKuliahCard extends StatelessWidget {
                             children: [
                               Icon(
                                 Icons.location_on,
-                                color: AppColors.accent,
+                                color: colors.secondary,
                                 size: 16,
                               ),
                               const SizedBox(width: 2),

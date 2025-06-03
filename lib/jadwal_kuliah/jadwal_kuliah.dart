@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:siakad/widgets/custom_header.dart';
 import 'package:siakad/widgets/content_container.dart';
-import 'package:siakad/constant/app_colors.dart';
 import 'package:siakad/widgets/jadwal_kuliah_card.dart';
 import 'package:siakad/widgets/jadwal_kuliah_header.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -159,7 +158,7 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                             width: 31.77,
                             height: 31,
                             decoration: BoxDecoration(
-                              color: AppColors.accent,
+                              color: colors.secondary,
                               shape: BoxShape.circle,
                             ),
                             padding: const EdgeInsets.all(7),
@@ -184,7 +183,7 @@ class _JadwalKuliahState extends State<JadwalKuliah> {
                                 ? Icons.keyboard_arrow_down_outlined
                                 : Icons.chevron_right_outlined,
                             color:
-                                showJadwalLain ? Colors.grey : AppColors.accent,
+                                showJadwalLain ? Colors.grey : colors.secondary,
                             size: 25,
                           ),
                         ],

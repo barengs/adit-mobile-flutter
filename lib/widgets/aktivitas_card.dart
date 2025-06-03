@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:siakad/constant/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:siakad/absensi/absensi.dart';
 import 'package:siakad/jadwal_kuliah/jadwal_kuliah.dart';
@@ -9,6 +8,7 @@ class AktivitasCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     final items = [
       {'icon': 'assets/svg/jadwal.svg', 'title': 'Jadwal'},
       {'icon': 'assets/svg/presensi.svg', 'title': 'Presensi'},
@@ -72,7 +72,7 @@ class AktivitasCard extends StatelessWidget {
         Container(
           width: double.infinity,
           decoration: BoxDecoration(
-            color:  Color(0x33C4C4C4),
+            color: Color(0x33C4C4C4),
             borderRadius: BorderRadius.circular(12),
           ),
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 10),
@@ -121,9 +121,9 @@ class AktivitasCard extends StatelessWidget {
                             Container(
                               width: 60,
                               height: 60,
-                              decoration: const BoxDecoration(
+                              decoration: BoxDecoration(
                                 shape: BoxShape.circle,
-                                color: AppColors.accent,
+                                color: colors.secondary,
                               ),
                               child: Center(
                                 child:

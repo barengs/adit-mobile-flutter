@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:siakad/constant/app_colors.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:siakad/widgets/attendance_status.dart';
-
-final List<AttendanceStatus> attendanceData = [
-  AttendanceStatus(color: Color(0xFFD80000), label: 'Alpa', count: 0),
-  AttendanceStatus(color: Color(0xFFEDCB19), label: 'Sakit', count: 0),
-  AttendanceStatus(color: Colors.orange, label: 'Izin', count: 0),
-  AttendanceStatus(color: AppColors.accent, label: 'Hadir', count: 7),
-];
 
 class AbsensiCard extends StatelessWidget {
   final bool isRounded;
@@ -18,6 +10,12 @@ class AbsensiCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    final List<AttendanceStatus> attendanceData = [
+      AttendanceStatus(color: Color(0xFFD80000), label: 'Alpa', count: 0),
+      AttendanceStatus(color: Color(0xFFEDCB19), label: 'Sakit', count: 0),
+      AttendanceStatus(color: Colors.orange, label: 'Izin', count: 0),
+      AttendanceStatus(color: colors.secondary, label: 'Hadir', count: 7),
+    ];
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       height: 364,
@@ -131,7 +129,7 @@ class AbsensiCard extends StatelessWidget {
                   width: 170,
                   height: 11,
                   decoration: BoxDecoration(
-                    color: AppColors.accent,
+                    color: colors.secondary,
                     borderRadius: BorderRadius.circular(5),
                   ),
                 ),

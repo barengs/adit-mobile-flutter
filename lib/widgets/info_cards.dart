@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:siakad/constant/app_colors.dart';
 
 class InfoCards extends StatelessWidget {
   final String? imageUrl;
@@ -17,6 +16,7 @@ class InfoCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colors = Theme.of(context).colorScheme;
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -102,7 +102,7 @@ class InfoCards extends StatelessWidget {
                   horizontal: 12,
                 ),
                 decoration: BoxDecoration(
-                  color: AppColors.accent,
+                  color: colors.secondary,
                   borderRadius: BorderRadius.circular(7),
                 ),
                 child: Row(
