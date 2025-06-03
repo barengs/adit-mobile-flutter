@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class SectionHeader extends StatelessWidget {
   final String? title;
@@ -43,6 +44,24 @@ class SectionHeader extends StatelessWidget {
               fontWeight: FontWeight.w600,
               color: Colors.black,
             ),
+          ),
+          const Spacer(),
+          Container(
+            width: 31.77,
+            height: 31,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
+              boxShadow: [
+                BoxShadow(
+                  color: Color.fromRGBO(0, 0, 0, 0.17),
+                  offset: Offset(0, 1),
+                  blurRadius: 5,
+                ),
+              ],
+            ),
+            padding: EdgeInsets.all(8),
+            child: SvgPicture.asset('assets/svg/filter.svg'),
           ),
         ],
       ),
