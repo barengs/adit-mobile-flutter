@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:siakad/absensi/absensi.dart';
 import 'package:siakad/jadwal_kuliah/jadwal_kuliah.dart';
+import 'package:siakad/elearning/e_learning_dashboard.dart';
 
 class AktivitasCard extends StatelessWidget {
   const AktivitasCard({super.key});
@@ -101,6 +102,14 @@ class AktivitasCard extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => const Absensi(),
+                              ),
+                            );
+                            break;
+                            case 'Elearning':
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ELearningDashboard(),
                               ),
                             );
                             break;

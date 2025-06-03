@@ -44,7 +44,7 @@ class JadwalKuliahCard extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 10,
-                  ), // atur seberapa tengah
+                  ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -102,54 +102,60 @@ class JadwalKuliahCard extends StatelessWidget {
                     width: 1,
                   ),
                 ),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Stack(
+                  clipBehavior: Clip.none,
                   children: [
-                    // Waktu Kuliah
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(jamMulai, style: _timeStyle()),
-                        const SizedBox(height: 8),
-                        SvgPicture.asset(
-                          'assets/svg/arrow_downward.svg',
-                          width: 13,
+                        // Waktu Kuliah
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(jamMulai, style: _timeStyle()),
+                            const SizedBox(height: 8),
+                            SvgPicture.asset(
+                              'assets/svg/arrow_downward.svg',
+                              width: 13,
+                            ),
+                            const SizedBox(height: 8),
+                            Text(jamSelesai, style: _timeStyle()),
+                          ],
                         ),
-                        const SizedBox(height: 8),
-                        Text(jamSelesai, style: _timeStyle()),
-                      ],
-                    ),
-                    const SizedBox(width: 32),
+                        const SizedBox(width: 32),
 
-                    // Detail Kuliah
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(mataKuliah, style: _titleStyle()),
-                          const SizedBox(height: 5),
-                          Text(deskripsi, style: _descStyle()),
-                          const SizedBox(height: 8),
-                          Row(
+                        // Detail Kuliah
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Icon(
-                                Icons.location_on,
-                                color: colors.secondary,
-                                size: 16,
+                              Text(mataKuliah, style: _titleStyle()),
+                              const SizedBox(height: 5),
+                              Text(deskripsi, style: _descStyle()),
+                              const SizedBox(height: 8),
+                              Row(
+                                children: [
+                                  Icon(
+                                    Icons.location_on,
+                                    color: colors.secondary,
+                                    size: 16,
+                                  ),
+                                  const SizedBox(width: 2),
+                                  Text(lokasi, style: _lokasiStyle()),
+                                ],
                               ),
-                              const SizedBox(width: 2),
-                              Text(lokasi, style: _lokasiStyle()),
                             ],
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-
+                    
                     // Status Icon
                     Visibility(
                       visible: isVisible,
-                      child: Transform.translate(
-                        offset: const Offset(5, 0),
+                      child: Positioned(
+                        right: -9,
+                        top: 0,
                         child: SvgPicture.asset(
                           'assets/svg/radio_button_checked.svg',
                           width: 20,
@@ -167,7 +173,6 @@ class JadwalKuliahCard extends StatelessWidget {
   }
 }
 
-// STYLE HELPERS
 TextStyle _timeStyle() => const TextStyle(
   fontFamily: 'Sarabun',
   fontWeight: FontWeight.w600,
