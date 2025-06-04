@@ -18,7 +18,7 @@ class InfoCards extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
     return Container(
-      width: double.infinity,
+      width: MediaQuery.of(context).size.width - 30,
       decoration: BoxDecoration(
         color: Color(0xFFFFFFFF),
         borderRadius: BorderRadius.circular(12),
@@ -55,42 +55,40 @@ class InfoCards extends StatelessWidget {
             ),
 
           Padding(
-            padding: const EdgeInsets.fromLTRB(
-              12,
-              12,
-              12,
-              0,
-            ), // Mengurangi padding bottom
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                if (title != null)
-                  Text(
-                    title!,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontFamily: 'Sarabun',
-                      fontWeight: FontWeight.w600,
-                      color: Color.fromRGBO(0, 0, 0, 0.75),
+            padding: const EdgeInsets.fromLTRB(12, 12, 12, 0),
+            child: SizedBox(
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  if (title != null)
+                    Text(
+                      title!,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontFamily: 'Sarabun',
+                        fontWeight: FontWeight.w600,
+                        color: Color.fromRGBO(0, 0, 0, 0.75),
+                      ),
                     ),
-                  ),
-                if (description != null)
-                  Text(
-                    description!,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(
-                      fontSize: 13,
-                      fontFamily: 'Sarabun',
-                      fontWeight: FontWeight.w300,
-                      color: Color.fromRGBO(0, 0, 0, 0.75),
+                  if (description != null)
+                    Text(
+                      description!,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        fontFamily: 'Sarabun',
+                        fontWeight: FontWeight.w300,
+                        color: Color.fromRGBO(0, 0, 0, 0.75),
+                      ),
                     ),
-                  ),
-              ],
+                ],
+              ),
             ),
           ),
 
-          // Button
+          //* Tombol selanjutnya
           Padding(
             padding: const EdgeInsets.fromLTRB(12, 14, 12, 14),
             child: GestureDetector(
