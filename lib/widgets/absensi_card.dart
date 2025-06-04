@@ -40,8 +40,8 @@ class AbsensiCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 67,
             width: double.infinity,
+            height: 67,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(33.5),
@@ -153,7 +153,7 @@ class AbsensiCard extends StatelessWidget {
 
           //* Tombol rincian
           Container(
-            width: 340,
+            width: double.infinity,
             decoration: BoxDecoration(
               color: Color.fromRGBO(45, 186, 177, 0.38),
               borderRadius: BorderRadius.circular(13),
