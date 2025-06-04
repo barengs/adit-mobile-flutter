@@ -44,16 +44,10 @@ class _DashboardState extends State<Dashboard> {
       body: Column(
         children: [
           CustomHeader(
-            title:
-                _currentIndex == 0
-                    ? null
-                    : (_currentIndex == 1 ? 'Presensi' : 'Info'),
+            title: _currentIndex == 0 ? null : (_currentIndex == 1 ? 'Presensi' : 'Info'),
             username: _currentIndex == 0 ? 'Addis' : null,
             npm: _currentIndex == 0 ? '5161011016' : null,
-            profileImageUrl:
-                _currentIndex == 0
-                    ? 'https://avatars.githubusercontent.com/u/583231?v=4'
-                    : null,
+            profileImageUrl:_currentIndex == 0 ? 'https://avatars.githubusercontent.com/u/583231?v=4' : null,
             showNotificationIcon: _currentIndex == 0,
             showSettingsIcon: _currentIndex == 0,
           ),
