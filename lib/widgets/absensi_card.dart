@@ -7,11 +7,15 @@ class AbsensiCard extends StatelessWidget {
   final String mataKuliah;
   final String waktu;
 
+  // Tambahkan parameter presentase (0-100)
+  final double presentase;
+
   const AbsensiCard({
     super.key,
     required this.isRounded,
     required this.mataKuliah,
     required this.waktu,
+    required this.presentase,
   });
 
   @override
@@ -71,7 +75,7 @@ class AbsensiCard extends StatelessWidget {
                   children: [
                     Text(
                       mataKuliah,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontFamily: 'Roboto',
                         fontSize: 14,
                         fontWeight: FontWeight.w500,
@@ -81,7 +85,7 @@ class AbsensiCard extends StatelessWidget {
                     const SizedBox(width: 10, height: 3),
                     Text(
                       waktu,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontFamily: 'Roboto',
                         fontSize: 9,
                         fontWeight: FontWeight.w500,
@@ -101,8 +105,8 @@ class AbsensiCard extends StatelessWidget {
             child: Align(
               alignment: Alignment.centerLeft,
               child: Text(
-                '50%',
-                style: TextStyle(
+                '${presentase.toInt()}%',
+                style: const TextStyle(
                   fontFamily: 'Roboto',
                   fontWeight: FontWeight.w700,
                   fontSize: 24,
@@ -115,33 +119,41 @@ class AbsensiCard extends StatelessWidget {
           const SizedBox(height: 3),
 
           //* Progress Bar
-          Stack(
-            children: [
-              Container(
-                width: 335,
-                height: 19,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(
-                    color: Color.fromRGBO(241, 241, 241, 1.0),
-                    width: 2,
+          LayoutBuilder(
+            builder: (context, constraints) {
+              final maxWidth = constraints.maxWidth;
+              final fillWidth = maxWidth * (presentase / 100);
+
+              return Stack(
+                children: [
+                  Container(
+                    width: maxWidth,
+                    height: 19,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
+                      border: Border.all(
+                        color: const Color.fromRGBO(241, 241, 241, 1.0),
+                        width: 2,
+                      ),
+                    ),
                   ),
-                ),
-              ),
-              Positioned(
-                left: 4,
-                top: 4,
-                child: Container(
-                  width: 170,
-                  height: 11,
-                  decoration: BoxDecoration(
-                    color: colors.secondary,
-                    borderRadius: BorderRadius.circular(5),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    child: AnimatedContainer(
+                      duration: const Duration(milliseconds: 300),
+                      width: fillWidth.clamp(0, maxWidth),
+                      height: 11,
+                      decoration: BoxDecoration(
+                        color: colors.secondary,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      margin: const EdgeInsets.symmetric(vertical: 4),
+                    ),
                   ),
-                ),
-              ),
-            ],
+                ],
+              );
+            },
           ),
 
           const SizedBox(height: 5),
@@ -155,7 +167,7 @@ class AbsensiCard extends StatelessWidget {
           Container(
             width: double.infinity,
             decoration: BoxDecoration(
-              color: Color.fromRGBO(45, 186, 177, 0.38),
+              color: const Color.fromRGBO(45, 186, 177, 0.38),
               borderRadius: BorderRadius.circular(13),
             ),
             child: SizedBox(
@@ -163,8 +175,8 @@ class AbsensiCard extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 20.0),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 20.0),
                     child: Text(
                       'Rincian',
                       style: TextStyle(
@@ -175,8 +187,8 @@ class AbsensiCard extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 15.0),
+                  const Padding(
+                    padding: EdgeInsets.only(right: 15.0),
                     child: Icon(
                       Icons.arrow_outward_outlined,
                       color: Color.fromRGBO(45, 186, 177, 0.72),

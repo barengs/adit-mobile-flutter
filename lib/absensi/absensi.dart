@@ -45,6 +45,7 @@ class _AbsensiState extends State<Absensi> {
                     isRounded: index == 0,
                     mataKuliah: absensiData[index]['title']!,
                     waktu: absensiData[index]['detail']!,
+                    presentase: 70,
                   );
                 },
               ),
