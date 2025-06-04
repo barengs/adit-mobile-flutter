@@ -1,17 +1,11 @@
 // lib/dashboard.dart
 import 'package:flutter/material.dart';
+import 'package:siakad/info/info.dart';
 import 'package:siakad/widgets/custom_bottom_nav_bar.dart';
 import 'package:siakad/widgets/custom_header.dart';
 import 'package:siakad/widgets/content_container.dart';
-import 'package:siakad/info/info.dart';
 import 'dashboard_content.dart';
 import 'package:siakad/presensi/presensi.dart';
-
-final List<Widget> _pages = [
-  const DashboardContent(),
-  const Presensi(),
-  const Info(),
-];
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -21,6 +15,27 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   int _currentIndex = 0;
+
+  // untuk mengubah tab
+  void _changeTab(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  Widget _getCurrentPage() {
+    switch (_currentIndex) {
+      case 0:
+        return DashboardContent(onTabChange: _changeTab);
+      case 1:
+        return const Presensi();
+      case 2:
+        return const Info();
+      default:
+        return DashboardContent(onTabChange: _changeTab);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
@@ -42,16 +57,12 @@ class _DashboardState extends State<Dashboard> {
             showNotificationIcon: _currentIndex == 0,
             showSettingsIcon: _currentIndex == 0,
           ),
-          ContentContainer(child: _pages[_currentIndex]),
+          ContentContainer(child: _getCurrentPage()),
         ],
       ),
       bottomNavigationBar: CustomBottomNavBar(
         currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+        onTap: _changeTab,
       ),
     );
   }

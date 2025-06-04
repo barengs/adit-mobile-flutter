@@ -3,9 +3,12 @@ import 'package:siakad/widgets/aktivitas_card.dart';
 import 'package:siakad/widgets/jadwal_kuliah_card.dart';
 import 'package:siakad/widgets/info_cards.dart';
 import 'package:siakad/widgets/jadwal_kuliah_header.dart';
+import 'package:siakad/jadwal_kuliah/jadwal_kuliah.dart';
 
 class DashboardContent extends StatefulWidget {
-  const DashboardContent({super.key});
+  final Function(int)? onTabChange;
+  
+  const DashboardContent({super.key, this.onTabChange});
 
   @override
   State<DashboardContent> createState() => _DashboardContentState();
@@ -19,9 +22,7 @@ class _DashboardContentState extends State<DashboardContent> {
     final colors = Theme.of(context).colorScheme;
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 15,
-        ),
+        padding: const EdgeInsets.symmetric(horizontal: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -72,8 +73,12 @@ class _DashboardContentState extends State<DashboardContent> {
               ),
             ),
             const SizedBox(height: 10),
+
+            //* aktivitas menu
             const AktivitasCard(),
             const SizedBox(height: 20),
+
+            //* Jadwal kuliah hari ini
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -86,15 +91,27 @@ class _DashboardContentState extends State<DashboardContent> {
                     color: Color.fromRGBO(0, 0, 0, 0.75),
                   ),
                 ),
-                Icon(
-                  Icons.arrow_forward_outlined,
-                  size: 25,
-                  color: const Color(0xFFC4C4C4),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => JadwalKuliah()),
+                    );
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_outlined,
+                    size: 25,
+                    color: const Color(0xFFC4C4C4),
+                  ),
                 ),
               ],
             ),
+
             const SizedBox(height: 15),
+            //* jadwal kuliah header
             const JadwalKuliahHeader(tanggal: 13, hari: 'Senin'),
+
+            //* jadwal kuliah card
             JadwalKuliahCard(
               showHeader: false,
               mataKuliah: 'Rekayasa Web Praktik',
@@ -103,7 +120,10 @@ class _DashboardContentState extends State<DashboardContent> {
               jamSelesai: '12:10',
               lokasi: 'E.3.3',
             ),
+
             const SizedBox(height: 25),
+
+            //* Informasi untuk kamu
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -116,10 +136,17 @@ class _DashboardContentState extends State<DashboardContent> {
                     color: Color.fromRGBO(0, 0, 0, 0.75),
                   ),
                 ),
-                Icon(
-                  Icons.arrow_forward_outlined,
-                  size: 25,
-                  color: const Color(0xFFC4C4C4),
+                InkWell(
+                  onTap: () {
+                    if (widget.onTabChange != null) {
+                      widget.onTabChange!(2);
+                    }
+                  },
+                  child: Icon(
+                    Icons.arrow_forward_outlined,
+                    size: 25,
+                    color: const Color(0xFFC4C4C4),
+                  ),
                 ),
               ],
             ),
