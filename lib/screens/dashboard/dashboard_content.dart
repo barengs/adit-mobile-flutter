@@ -3,7 +3,7 @@ import 'package:siakad/widgets/aktivitas_card.dart';
 import 'package:siakad/widgets/jadwal_kuliah_card.dart';
 import 'package:siakad/widgets/info_cards.dart';
 import 'package:siakad/widgets/jadwal_kuliah_header.dart';
-import 'package:siakad/jadwal_kuliah/jadwal_kuliah.dart';
+import 'package:siakad/screens/jadwal_kuliah/jadwal_kuliah.dart';
 
 class DashboardContent extends StatefulWidget {
   final Function(int)? onTabChange;

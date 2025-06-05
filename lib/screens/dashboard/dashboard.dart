@@ -1,11 +1,11 @@
 // lib/dashboard.dart
 import 'package:flutter/material.dart';
-import 'package:siakad/info/info.dart';
+import 'package:siakad/screens/info/info.dart';
 import 'package:siakad/widgets/custom_bottom_nav_bar.dart';
 import 'package:siakad/widgets/custom_header.dart';
 import 'package:siakad/widgets/content_container.dart';
 import 'dashboard_content.dart';
-import 'package:siakad/presensi/presensi.dart';
+import 'package:siakad/screens/presensi/presensi.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
