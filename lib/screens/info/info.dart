@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 import 'package:siakad/widgets/info_cards.dart';
+import 'package:siakad/services/image_services.dart'; // Import service
 
 class Info extends StatefulWidget {
   const Info({super.key});
@@ -11,34 +10,34 @@ class Info extends StatefulWidget {
 }
 
 class InfoState extends State<Info> {
+  // STEP 1: Variable untuk simpan data
   List<Map<String, String>> infoItems = [];
+  ImageServices imageServices = ImageServices();
+  bool isLoading = true;
 
   @override
   void initState() {
     super.initState();
-    fetchDummyNews();
+    // STEP 2: Panggil fungsi ambil data
+    ambilDataInfo();
   }
 
-  Future<void> fetchDummyNews() async {
-    final response = await http.get(
-      Uri.parse('https://picsum.photos/v2/list?page=3&limit=5'),
-    );
-
-    if (response.statusCode == 200) {
-      final List data = jsonDecode(response.body);
-
+  // STEP 3: Fungsi untuk ambil data
+  Future<void> ambilDataInfo() async {
+    try {
+      // Ambil data dari service
+      List<Map<String, String>> data = await imageServices.fetchImageNews();
+      
+      // Update UI
       setState(() {
-        infoItems = data.map<Map<String, String>>((item) {
-          return {
-            'imageUrl': item['download_url'],
-            'title': 'Gambar oleh ${item['author']}',
-            'description':
-                'Non culpa est esse aliqua aliqua officia duis excepteur do irure irure reprehenderit cupidatat id. Aliquip irure mollit duis elit. Proident ex nulla magna veniam nulla veniam ut. Dolore et aliqua reprehenderit aute ea officia ipsum sit do labore fugiat aute qui. Exercitation ullamco sit voluptate aute elit dolore aute id id ea veniam.'
-          };
-        }).toList();
+        infoItems = data;
+        isLoading = false;
       });
-    } else {
-      debugPrint('Gagal mengambil data dari API');
+    } catch (e) {
+      setState(() {
+        isLoading = false;
+      });
+      debugPrint('Error mengambil data: $e');
     }
   }
 
@@ -46,24 +45,24 @@ class InfoState extends State<Info> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFFFFFFF),
-      body: infoItems.isEmpty
+      body: isLoading
           ? const Center(child: CircularProgressIndicator())
-          : ListView.builder(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 16,
-              ),
-              itemCount: infoItems.length,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: InfoCards(
-                    imageUrl: infoItems[index]['imageUrl']!,
-                    title: infoItems[index]['title']!,
-                    description: infoItems[index]['description']!,
-                  ),
-                );
-              },
-            ),
+          : infoItems.isEmpty
+              ? const Center(child: Text('Tidak ada data'))
+              : ListView.builder(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  itemCount: infoItems.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 20),
+                      child: InfoCards(
+                        imageUrl: infoItems[index]['imageUrl'],
+                        title: infoItems[index]['title'],
+                        description: infoItems[index]['description'],
+                      ),
+                    );
+                  },
+                ),
     );
   }
 }
