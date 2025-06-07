@@ -4,8 +4,9 @@ import 'package:siakad/widgets/custom_header.dart';
 import 'package:siakad/widgets/content_container.dart';
 import 'package:siakad/widgets/tugas_card.dart';
 import 'package:siakad/widgets/section_header.dart';
-import 'package:siakad/widgets/daftar_mata_kuliah_card.dart';
+import 'package:siakad/widgets/matkul_task_progress_card.dart';
 import 'package:siakad/services/image_services.dart';
+import 'package:siakad/screens/elearning/e_learning_task_list.dart';
 
 class ELearningDashboard extends StatefulWidget {
   const ELearningDashboard({super.key});
@@ -85,11 +86,20 @@ class _ELearningDashboardState extends State<ELearningDashboard> {
                               itemBuilder: (context, index) {
                                 return Padding(
                                   padding: EdgeInsets.only(bottom: 20),
-                                  child: DaftarMataKuliahCard(
+                                  child: MatkulTaskProgressCard(
                                     imageUrl:
                                         mataKuliahList[index]['imageUrl']!,
                                     mataKuliah: mataKuliahList[index]['title']!,
                                     presentase: 50 + (index * 5),
+                                    onNavigate: () {
+                                      Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                          builder:
+                                              (context) => ELearningTaskList(),
+                                        ),
+                                      );
+                                    },
                                   ),
                                 );
                               },
