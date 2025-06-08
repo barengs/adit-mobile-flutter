@@ -39,7 +39,7 @@ class MatkulTaskCard extends StatelessWidget {
               fit: BoxFit.contain,
             ),
           ),
-          const SizedBox(width: 10),
+          const SizedBox(width: 15),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
