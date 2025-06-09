@@ -3,7 +3,7 @@ import 'package:siakad/widgets/custom_header.dart';
 import 'package:siakad/widgets/content_container.dart';
 import 'package:siakad/widgets/matkul_task_card.dart';
 import 'package:siakad/widgets/tasks_list_card.dart';
-// import 'package:siakad/screens/elearning/place_holder_page.dart';
+import 'package:siakad/screens/elearning/place_holder_page.dart';
 
 class ELearningTaskList extends StatefulWidget {
   const ELearningTaskList({super.key});
@@ -51,14 +51,14 @@ class _ELearningTaskListState extends State<ELearningTaskList> {
                         child: TasksListCard(
                           serialNumber: index + 1,
                           taskTitle: title,
-                          // onTap: () {
-                          //   Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //       builder: (context) => const PlaceholderPage(),
-                          //     ),
-                          //   );
-                          // },
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const PlaceholderPage(),
+                              ),
+                            );
+                          },
                         ),
                       );
                     }),
