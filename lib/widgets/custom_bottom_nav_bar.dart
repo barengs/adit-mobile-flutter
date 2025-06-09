@@ -14,7 +14,7 @@ class CustomBottomNavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity, // Memastikan lebar penuh
+      width: double.infinity,
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -67,9 +67,11 @@ class CustomBottomNavBar extends StatelessWidget {
                       size: 29,
                     ),
               SizedBox(height: 1),
+
+              // *Bottom navigasi bar
               Container(
                 height: 3.0,
-                width: 25.0,
+                width: 35.0,
                 color: isActive ? Color(0xFF21ABA5) : Colors.transparent,
               ),
             ],
