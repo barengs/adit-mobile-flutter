@@ -25,6 +25,10 @@ class MatkulTaskProgressCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: const Color(0xFFFFFFFF),
           borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: Color.fromRGBO(196, 196, 196, 0.42),
+            width: 1,
+          ),
           boxShadow: [
             BoxShadow(
               color: const Color(0xFF000000).withValues(alpha: 0.4),
