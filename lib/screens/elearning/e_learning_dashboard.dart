@@ -53,8 +53,27 @@ class _ELearningDashboardState extends State<ELearningDashboard> {
           Expanded(
             child: ContentContainer(
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Padding(
+                  const SizedBox(height: 10),
+                  const Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 20),
+                    child: Row(
+                      children: [
+                        Text(
+                          'Tugas',
+                          style: TextStyle(
+                            fontFamily: 'Sarabun',
+                            fontWeight: FontWeight.w600,
+                            fontSize: 16,
+                            color: Color.fromRGBO(0, 0, 0, 0.75),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  const Padding(
                     padding: EdgeInsets.symmetric(horizontal: 12),
                     //* TugasCard
                     child: TugasCard(
