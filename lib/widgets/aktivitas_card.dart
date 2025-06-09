@@ -39,32 +39,6 @@ class AktivitasCard extends StatelessWidget {
                   fontFamily: 'Sarabun',
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  // Navigasi saat 'Lihat Semuanya' diklik (opsional)
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text(
-                        'Navigasi ke semua aktivitas belum tersedia',
-                      ),
-                    ),
-                  );
-                },
-                child: Row(
-                  children: const [
-                    Text(
-                      'Lihat Semuanya',
-                      style: TextStyle(
-                        color: Color(0xFFC4C4C4),
-                        fontSize: 12,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'Sarabun',
-                      ),
-                    ),
-                    SizedBox(width: 5),
-                  ],
-                ),
-              ),
             ],
           ),
         ),
