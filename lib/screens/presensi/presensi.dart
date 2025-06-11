@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:siakad/widgets/presensi_qr_view.dart';
 
 class Presensi extends StatelessWidget {
   const Presensi({super.key});
@@ -8,7 +9,11 @@ class Presensi extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
-        child: Text('oke', style: TextStyle(color: Colors.black, fontSize: 40)),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [PresensiQRView()],
+        ),
       ),
     );
   }
