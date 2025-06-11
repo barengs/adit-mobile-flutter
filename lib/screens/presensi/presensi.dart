@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:siakad/widgets/presensi_qr_view.dart';
 import 'package:siakad/widgets/switch_button.dart';
-import 'package:siakad/widgets/matkul_presensi_card.dart';
+import 'package:siakad/widgets/manual_presensi_card.dart';
 
 class Presensi extends StatefulWidget {
   const Presensi({super.key});
@@ -30,7 +30,7 @@ class _PresensiState extends State<Presensi> {
                 child:
                     isQRMode
                         ? const PresensiQRView(key: ValueKey('qr'))
-                        : const MatkulPresensiCard(key: ValueKey('manual')),
+                        : const ManualPresensiCard(key: ValueKey('manual')),
               ),
               const SizedBox(height: 12),
               SwitchButton(
