@@ -7,7 +7,7 @@ import 'package:siakad/screens/jadwal_kuliah/jadwal_kuliah.dart';
 
 class DashboardContent extends StatefulWidget {
   final Function(int)? onTabChange;
-  
+
   const DashboardContent({super.key, this.onTabChange});
 
   @override
@@ -20,6 +20,8 @@ class _DashboardContentState extends State<DashboardContent> {
   @override
   Widget build(BuildContext context) {
     final colors = Theme.of(context).colorScheme;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 15),
@@ -34,7 +36,7 @@ class _DashboardContentState extends State<DashboardContent> {
                 borderRadius: BorderRadius.circular(25),
                 child: Image.asset(
                   imagePath,
-                  height: 151,
+                  height: screenHeight * 0.2,
                   width: double.infinity,
                   fit: BoxFit.cover,
                   errorBuilder:

@@ -16,6 +16,7 @@ class InfoCards extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     final colors = Theme.of(context).colorScheme;
     return Container(
       width: MediaQuery.of(context).size.width - 30,
@@ -41,7 +42,7 @@ class InfoCards extends StatelessWidget {
               ),
               child: Image.network(
                 imageUrl!,
-                height: 116,
+                height: screenHeight * 0.2,
                 width: double.infinity,
                 fit: BoxFit.cover,
                 errorBuilder:
