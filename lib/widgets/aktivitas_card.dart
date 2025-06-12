@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:siakad/screens/absensi/absensi.dart';
 import 'package:siakad/screens/jadwal_kuliah/jadwal_kuliah.dart';
 import 'package:siakad/screens/elearning/e_learning_dashboard.dart';
+import 'package:siakad/screens/khs/khs_page.dart';
 
 class AktivitasCard extends StatelessWidget {
   const AktivitasCard({super.key});
@@ -60,10 +61,10 @@ class AktivitasCard extends StatelessWidget {
                   items.map((item) {
                     final icon = item['icon'];
                     final title = item['title'] as String;
-
                     return GestureDetector(
                       onTap: () {
                         switch (title) {
+                          // * Navigasi ke halaman Jadwal
                           case 'Jadwal':
                             Navigator.push(
                               context,
@@ -71,6 +72,7 @@ class AktivitasCard extends StatelessWidget {
                                 builder: (context) => JadwalKuliah(),
                               ),
                             );
+                          // * Navigasi ke halaman Absensi
                           case 'Presensi':
                             Navigator.push(
                               context,
@@ -79,11 +81,21 @@ class AktivitasCard extends StatelessWidget {
                               ),
                             );
                             break;
-                            case 'Elearning':
+                          // * Navigasi ke halaman Elearning
+                          case 'Elearning':
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const ELearningDashboard(),
+                                builder:
+                                    (context) => const ELearningDashboard(),
+                              ),
+                            );
+                          // * Navigasi ke halaman KHS
+                          case 'KHS':
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const KhsPage(),
                               ),
                             );
                             break;
