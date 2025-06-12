@@ -110,12 +110,6 @@ class _PresensiQRViewState extends State<PresensiQRView> {
               color: Colors.grey[700],
             ),
           ),
-          const SizedBox(height: 8),
-          Text(
-            'Berikan izin akses kamera\nuntuk scan QR Code',
-            textAlign: TextAlign.center,
-            style: TextStyle(fontSize: 14, color: Colors.grey[600]),
-          ),
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: () async {
