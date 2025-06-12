@@ -1,13 +1,27 @@
 import 'package:flutter/material.dart';
 
+class SwitchItem {
+  final IconData icon;
+
+  SwitchItem({required this.icon});
+}
+
 class SwitchButton extends StatefulWidget {
-  final bool isQRMode;
-  final Function(bool) onToggle;
+  final List<SwitchItem> items;
+  final int activeIndex;
+  final ValueChanged<int> onChanged;
+  final Color activeColor;
+  final Color inactiveColor;
+  final Color backgroundColor;
 
   const SwitchButton({
     super.key,
-    required this.isQRMode,
-    required this.onToggle,
+    required this.items,
+    required this.activeIndex,
+    required this.onChanged,
+    required this.activeColor,
+    required this.inactiveColor,
+    this.backgroundColor = const Color.fromRGBO(229, 229, 229, 0.6),
   });
 
   @override
@@ -17,60 +31,39 @@ class SwitchButton extends StatefulWidget {
 class _SwitchButtonState extends State<SwitchButton> {
   @override
   Widget build(BuildContext context) {
-    final colors = Theme.of(context).colorScheme;
-
     return Container(
-      width: 138,
-      height: 38,
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 3),
       decoration: BoxDecoration(
-        color: const Color.fromRGBO(229, 229, 229, 0.6),
+        color: widget.backgroundColor,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          _buildToggleButton(
-            icon: Icons.qr_code_2_rounded,
-            isActive: widget.isQRMode,
-            onTap: () => widget.onToggle(true),
-            activeColor: colors.secondary,
-            inactiveColor: Colors.transparent,
-          ),
-          _buildToggleButton(
-            icon: Icons.edit,
-            isActive: !widget.isQRMode,
-            onTap: () => widget.onToggle(false),
-            activeColor: colors.secondary,
-            inactiveColor: Colors.transparent,
-          ),
-        ],
-      ),
-    );
-  }
+        mainAxisSize: MainAxisSize.min,
+        children: List.generate(widget.items.length, (index) {
+          final item = widget.items[index];
+          final isActive = index == widget.activeIndex;
 
-  Widget _buildToggleButton({
-    required IconData icon,
-    required bool isActive,
-    required VoidCallback onTap,
-    required Color activeColor,
-    required Color inactiveColor,
-  }) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-        width: 61,
-        height: 32,
-        decoration: BoxDecoration(
-          color: isActive ? activeColor : inactiveColor,
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Icon(
-          icon,
-          color:
-              isActive
-                  ? Colors.white
-                  : const Color.fromRGBO(196, 196, 196, 1.0),
-        ),
+          return GestureDetector(
+            onTap: () {
+              widget.onChanged(index);
+            },
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 200),
+              width: 61,
+              height: 32,
+              margin: const EdgeInsets.symmetric(horizontal: 4),
+              decoration: BoxDecoration(
+                color: isActive ? widget.activeColor : widget.inactiveColor,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Icon(
+                item.icon,
+                color: isActive ? Colors.white : Colors.grey,
+                size: 25,
+              ),
+            ),
+          );
+        }),
       ),
     );
   }

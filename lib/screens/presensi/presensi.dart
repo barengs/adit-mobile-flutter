@@ -11,7 +11,7 @@ class Presensi extends StatefulWidget {
 }
 
 class _PresensiState extends State<Presensi> {
-  bool isQRMode = true;
+  int activeIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,18 +28,24 @@ class _PresensiState extends State<Presensi> {
                   return FadeTransition(opacity: animation, child: child);
                 },
                 child:
-                    isQRMode
+                    activeIndex == 0
                         ? const PresensiQRView(key: ValueKey('qr'))
                         : const ManualPresensiCard(key: ValueKey('manual')),
               ),
               const SizedBox(height: 12),
               SwitchButton(
-                isQRMode: isQRMode,
-                onToggle: (value) {
+                activeIndex: activeIndex,
+                activeColor: Theme.of(context).colorScheme.secondary,
+                inactiveColor: Colors.transparent,
+                onChanged: (index) {
                   setState(() {
-                    isQRMode = value;
+                    activeIndex = index;
                   });
                 },
+                items: [
+                  SwitchItem(icon: Icons.qr_code_2_rounded),
+                  SwitchItem(icon: Icons.edit),
+                ],
               ),
             ],
           ),
