@@ -5,6 +5,7 @@ import 'package:siakad/screens/jadwal_kuliah/jadwal_kuliah.dart';
 import 'package:siakad/screens/elearning/e_learning_dashboard.dart';
 import 'package:siakad/screens/khs/khs_page.dart';
 import 'package:siakad/screens/not_found/not_found_page.dart';
+import 'package:siakad/screens/profile_detail/profile_page.dart';
 
 class AktivitasCard extends StatelessWidget {
   const AktivitasCard({super.key});
@@ -97,6 +98,14 @@ class AktivitasCard extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) => const KhsPage(),
+                              ),
+                            );
+                            break;
+                          case 'KRS':
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const ProfilePage(), // nanti diubah ke halaman krs
                               ),
                             );
                             break;
